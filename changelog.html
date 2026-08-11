@@ -4,6 +4,10 @@
 <script>
 document.documentElement.classList.add('js');
 setTimeout(function () { document.body && document.body.classList.add('loaded'); }, 1500);
+try {
+  var storedLocale = localStorage.getItem('sigilbadges-locale');
+  if (storedLocale && storedLocale !== 'en') document.documentElement.lang = storedLocale;
+} catch (e) {}
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,10 +21,17 @@ setTimeout(function () { document.body && document.body.classList.add('loaded');
 <meta name="twitter:card" content="summary" />
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%85%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="assets/sigilbadges.svg" />
 <link rel="stylesheet" href="assets/site.css" />
 <link rel="stylesheet" href="assets/palettes.css" />
 <link rel="stylesheet" href="assets/changelog.css" />
+<link rel="stylesheet" href="assets/locale.css" />
+<!-- Cheap even if translate is never engaged — actual script load is lazy,
+     see assets/locale.js. -->
+<link rel="preconnect" crossorigin="anonymous" href="https://translate.google.com">
+<link rel="preconnect" crossorigin="anonymous" href="https://translate.googleapis.com">
+<link rel="dns-prefetch" href="https://translate.google.com">
+<link rel="dns-prefetch" href="https://translate.googleapis.com">
 </head>
 <body data-github-repo="lucianofedericopereira/sigilbadges">
 
@@ -36,6 +47,183 @@ setTimeout(function () { document.body && document.body.classList.add('loaded');
   <symbol id="icon-chevron-up" viewBox="0 0 24 24">
     <path d="M5 15 12 8 19 15" />
   </symbol>
+  <symbol id="flag-bg" viewBox="0 0 640 480">
+<path fill="#fff" d="M0 0h640v160H0z"/>
+  <path fill="#00966e" d="M0 160h640v160H0z"/>
+  <path fill="#d62612" d="M0 320h640v160H0z"/>
+  </symbol>
+  <symbol id="flag-cn" viewBox="0 0 640 480">
+<defs>
+    <path id="cn-a" fill="#ff0" d="M-.6.8 0-1 .6.8-1-.3h2z"/>
+  </defs>
+  <path fill="#ee1c25" d="M0 0h640v480H0z"/>
+  <use href="#cn-a" width="30" height="20" transform="matrix(71.9991 0 0 72 120 120)"/>
+  <use href="#cn-a" width="30" height="20" transform="rotate(239.07 133.748 -44.074)scale(23.99992 23.99978)"/>
+  <use href="#cn-a" width="30" height="20" transform="rotate(-98.11 185.558 -77.035)scale(24 23.9997)"/>
+  <use href="#cn-a" width="30" height="20" transform="matrix(6.5991 -23.0749 23.0746 6.59919 288 168)"/>
+  <use href="#cn-a" width="30" height="20" transform="matrix(14.9991 -18.73557 18.73533 14.99929 240 216)"/>
+  </symbol>
+  <symbol id="flag-cz" viewBox="0 0 640 480">
+<path fill="#fff" d="M0 0h640v240H0z"/>
+  <path fill="#d7141a" d="M0 240h640v240H0z"/>
+  <path fill="#11457e" d="M360 240 0 0v480z"/>
+  </symbol>
+  <symbol id="flag-de" viewBox="0 0 640 480">
+<path fill="#fc0" d="M0 320h640v160H0z"/>
+  <path fill="#000001" d="M0 0h640v160H0z"/>
+  <path fill="red" d="M0 160h640v160H0z"/>
+  </symbol>
+  <symbol id="flag-dk" viewBox="0 0 640 480">
+<path fill="#c8102e" d="M0 0h640.1v480H0z"/>
+  <path fill="#fff" d="M205.7 0h68.6v480h-68.6z"/>
+  <path fill="#fff" d="M0 205.7h640.1v68.6H0z"/>
+  </symbol>
+  <symbol id="flag-ee" viewBox="0 0 640 480">
+<path fill="#1791ff" d="M0 0h640v160H0z"/>
+  <path fill="#000001" d="M0 160h640v160H0z"/>
+  <path fill="#fff" d="M0 320h640v160H0z"/>
+  </symbol>
+  <symbol id="flag-es" viewBox="0 0 640 480">
+<path fill="#aa151b" d="M0 0h640v480H0z"/>
+  <path fill="#f1bf00" d="M0 120h640v240H0z"/>
+  </symbol>
+  <symbol id="flag-fi" viewBox="0 0 640 480">
+<path fill="#fff" d="M0 0h640v480H0z"/>
+  <path fill="#002f6c" d="M0 174.5h640v131H0z"/>
+  <path fill="#002f6c" d="M175.5 0h130.9v480h-131z"/>
+  </symbol>
+  <symbol id="flag-fr" viewBox="0 0 640 480">
+<path fill="#fff" d="M0 0h640v480H0z"/>
+  <path fill="#000091" d="M0 0h213.3v480H0z"/>
+  <path fill="#e1000f" d="M426.7 0H640v480H426.7z"/>
+  </symbol>
+  <symbol id="flag-gr" viewBox="0 0 640 480">
+<path fill="#0d5eaf" fill-rule="evenodd" d="M0 0h640v53.3H0z"/>
+  <path fill="#fff" fill-rule="evenodd" d="M0 53.3h640v53.4H0z"/>
+  <path fill="#0d5eaf" fill-rule="evenodd" d="M0 106.7h640V160H0z"/>
+  <path fill="#fff" fill-rule="evenodd" d="M0 160h640v53.3H0z"/>
+  <path fill="#0d5eaf" d="M0 0h266.7v266.7H0z"/>
+  <path fill="#0d5eaf" fill-rule="evenodd" d="M0 213.3h640v53.4H0z"/>
+  <path fill="#fff" fill-rule="evenodd" d="M0 266.7h640V320H0z"/>
+  <path fill="#0d5eaf" fill-rule="evenodd" d="M0 320h640v53.3H0z"/>
+  <path fill="#fff" fill-rule="evenodd" d="M0 373.3h640v53.4H0z"/>
+  <g fill="#fff" fill-rule="evenodd" stroke-width="1.3">
+    <path d="M106.7 0H160v266.7h-53.3z"/>
+    <path d="M0 106.7h266.7V160H0z"/>
+  </g>
+  <path fill="#0d5eaf" d="M0 426.7h640V480H0z"/>
+  </symbol>
+  <symbol id="flag-hr" viewBox="0 0 640 480">
+<path fill="#171796" d="M0 0h640v480H0z"/>
+  <path fill="#fff" d="M0 0h640v320H0z"/>
+  <path fill="red" d="M0 0h640v160H0z"/>
+  </symbol>
+  <symbol id="flag-hu" viewBox="0 0 640 480">
+<g fill-rule="evenodd">
+    <path fill="#fff" d="M640 480H0V0h640z"/>
+    <path fill="#388d00" d="M640 480H0V320h640z"/>
+    <path fill="#d43516" d="M640 160.1H0V.1h640z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-ie" viewBox="0 0 640 480">
+<g fill-rule="evenodd" stroke-width="1pt">
+    <path fill="#fff" d="M0 0h640v480H0z"/>
+    <path fill="#009a49" d="M0 0h213.3v480H0z"/>
+    <path fill="#ff7900" d="M426.7 0H640v480H426.7z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-it" viewBox="0 0 640 480">
+<g fill-rule="evenodd" stroke-width="1pt">
+    <path fill="#fff" d="M0 0h640v480H0z"/>
+    <path fill="#009246" d="M0 0h213.3v480H0z"/>
+    <path fill="#ce2b37" d="M426.7 0H640v480H426.7z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-lt" viewBox="0 0 640 480">
+<g fill-rule="evenodd" stroke-width="1pt" transform="scale(.64143 .96773)">
+    <rect width="1063" height="708.7" fill="#006a44" rx="0" ry="0" transform="scale(.93865 .69686)"/>
+    <rect width="1063" height="236.2" y="475.6" fill="#c1272d" rx="0" ry="0" transform="scale(.93865 .69686)"/>
+    <path fill="#fdb913" d="M0 0h997.8v164.6H0z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-lv" viewBox="0 0 640 480">
+<g fill-rule="evenodd">
+    <path fill="#fff" d="M0 0h640v480H0z"/>
+    <path fill="#981e32" d="M0 0h640v192H0zm0 288h640v192H0z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-mt" viewBox="0 0 640 480">
+<path fill="#fff" d="M0 0h320v480H0z"/>
+  <path fill="#cf142b" d="M320 0h320v480H320z"/>
+  </symbol>
+  <symbol id="flag-nl" viewBox="0 0 640 480">
+<path fill="#ae1c28" d="M0 0h640v160H0z"/>
+  <path fill="#fff" d="M0 160h640v160H0z"/>
+  <path fill="#21468b" d="M0 320h640v160H0z"/>
+  </symbol>
+  <symbol id="flag-pl" viewBox="0 0 640 480">
+<g fill-rule="evenodd">
+    <path fill="#fff" d="M640 480H0V0h640z"/>
+    <path fill="#dc143c" d="M640 480H0V240h640z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-pt" viewBox="0 0 640 480">
+<path fill="red" d="M256 0h384v480H256z"/>
+  <path fill="#060" d="M0 0h256v480H0z"/>
+  </symbol>
+  <symbol id="flag-ro" viewBox="0 0 640 480">
+<g fill-rule="evenodd" stroke-width="1pt">
+    <path fill="#00319c" d="M0 0h213.3v480H0z"/>
+    <path fill="#ffde00" d="M213.3 0h213.4v480H213.3z"/>
+    <path fill="#de2110" d="M426.7 0H640v480H426.7z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-se" viewBox="0 0 640 480">
+<path fill="#005293" d="M0 0h640v480H0z"/>
+  <path fill="#fecb00" d="M176 0v192H0v96h176v192h96V288h368v-96H272V0z"/>
+  </symbol>
+  <symbol id="flag-si" viewBox="0 0 640 480">
+<defs>
+    <clipPath id="si-a">
+      <path fill-opacity=".7" d="M-15 0h682.6v512H-15.1z"/>
+    </clipPath>
+  </defs>
+  <g fill-rule="evenodd" stroke-width="1pt" clip-path="url(#si-a)" transform="translate(14.1)scale(.9375)">
+    <path fill="#fff" d="M-62 0H962v512H-62z"/>
+    <path fill="#d50000" d="M-62 341.3H962V512H-62z"/>
+    <path fill="#0000bf" d="M-62 170.7H962v170.6H-62z"/>
+    <path fill="#d50000" d="M228.4 93c-4 61.6-6.4 95.4-15.7 111-10.2 16.8-20 29.1-59.7 44-39.6-14.9-49.4-27.2-59.6-44-9.4-15.6-11.7-49.4-15.7-111l5.8-2c11.8-3.6 20.6-6.5 27.1-7.8 9.3-2 17.3-4.2 42.3-4.7 25 .4 33 2.8 42.3 4.8q9.7 2.1 27.3 7.7z"/>
+    <path fill="#0000bf" d="M222.6 91c-3.8 61.5-7 89.7-12 103.2-9.6 23.2-24.8 35.9-57.6 48-32.8-12.1-48-24.8-57.7-48-5-13.6-8-41.7-11.8-103.3q17.4-5.6 27.1-7.7c9.3-2 17.3-4.3 42.3-4.7 25 .4 33 2.7 42.3 4.7a284 284 0 0 1 27.4 7.7z"/>
+    <path fill="#ffdf00" d="m153 109.8 1.5 3.7 7 1-4.5 2.7 4.3 2.9-6.3 1-2 3.4-2-3.5-6-.8 4-3-4.2-2.7 6.7-1z"/>
+    <path fill="#fff" d="m208.3 179.6-3.9-3-2.7-4.6-5.4-4.7-2.9-4.7-5.4-4.9-2.6-4.7-3-2.3-1.8-1.9-5 4.3-2.6 4.7-3.3 3-3.7-2.9-2.7-4.8-10.3-18.3-10.3 18.3-2.7 4.8-3.7 2.9-3.3-3-2.7-4.7-4.9-4.3-1.9 1.8-2.9 2.4-2.6 4.7-5.4 4.9-2.9 4.7-5.4 4.7-2.7 4.6-3.9 3a66 66 0 0 0 18.6 36.3 107 107 0 0 0 36.6 20.5 104 104 0 0 0 36.8-20.5c5.8-6 16.6-19.3 18.6-36.3"/>
+    <path fill="#ffdf00" d="m169.4 83.9 1.6 3.7 7 1-4.6 2.7 4.4 2.9-6.3 1-2 3.4-2-3.5-6-.8 4-3-4.2-2.7 6.6-1zm-33 0 1.6 3.7 7 .9-4.5 2.7 4.3 2.9-6.3 1-2 3.4-2-3.4-6-.9 4-3-4.2-2.7 6.7-1z"/>
+    <path fill="#0000bf" d="M199.7 203h-7.4l-7-.5-8.3-4h-9.4l-8.1 4-6.5.6-6.4-.6-8.1-4H129l-8.4 4-6.9.6-7.6-.1-3.6-6.2.1-.2 11.2 1.9 6.9-.5 8.3-4.1h9.4l8.2 4 6.4.6 6.5-.6 8.1-4h9.4l8.4 4 6.9.6 10.8-2 .2.4zm-86.4 9.5 7.4-.5 8.3-4h9.4l8.2 4 6.4.5 6.4-.5 8.2-4h9.4l8.3 4 7.5.5 4.8-6h-.1l-5.2 1.4-6.9-.5-8.3-4h-9.4l-8.2 4-6.4.6-6.5-.6-8.1-4H129l-8.4 4-6.9.6-5-1.3v.2l4.5 5.6z"/>
+  </g>
+  </symbol>
+  <symbol id="flag-sk" viewBox="0 0 640 480">
+<path fill="#ee1c25" d="M0 0h640v480H0z"/>
+  <path fill="#0b4ea2" d="M0 0h640v320H0z"/>
+  <path fill="#fff" d="M0 0h640v160H0z"/>
+  <path fill="#fff" d="M233 370.8c-43-20.7-104.6-61.9-104.6-143.2 0-81.4 4-118.4 4-118.4h201.3s3.9 37 3.9 118.4S276 350 233 370.8"/>
+  <path fill="#ee1c25" d="M233 360c-39.5-19-96-56.8-96-131.4s3.6-108.6 3.6-108.6h184.8s3.5 34 3.5 108.6C329 303.3 272.5 341 233 360"/>
+  <path fill="#fff" d="M241.4 209c10.7.2 31.6.6 50.1-5.6 0 0-.4 6.7-.4 14.4s.5 14.4.5 14.4c-17-5.7-38.1-5.8-50.2-5.7v41.2h-16.8v-41.2c-12-.1-33.1 0-50.1 5.7 0 0 .5-6.7.5-14.4s-.5-14.4-.5-14.4c18.5 6.2 39.4 5.8 50 5.6v-25.9c-9.7 0-23.7.4-39.6 5.7 0 0 .5-6.6.5-14.4 0-7.7-.5-14.4-.5-14.4 15.9 5.3 29.9 5.8 39.6 5.7-.5-16.4-5.3-37-5.3-37s9.9.7 13.8.7 13.8-.7 13.8-.7-4.8 20.6-5.3 37c9.7.1 23.7-.4 39.6-5.7 0 0-.5 6.7-.5 14.4s.5 14.4.5 14.4a119 119 0 0 0-39.7-5.7v26z"/>
+  <path fill="#0b4ea2" d="M233 263.3c-19.9 0-30.5 27.5-30.5 27.5s-6-13-22.2-13c-11 0-19 9.7-24.2 18.8 20 31.7 51.9 51.3 76.9 63.4 25-12 57-31.7 76.9-63.4-5.2-9-13.2-18.8-24.2-18.8-16.2 0-22.2 13-22.2 13S253 263.3 233 263.3"/>
+  </symbol>
+  <symbol id="flag-us" viewBox="0 0 640 480">
+<path fill="#bd3d44" d="M0 0h640v480H0"/>
+  <path stroke="#fff" stroke-width="37" d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640"/>
+  <path fill="#192f5d" d="M0 0h364.8v258.5H0"/>
+  <marker id="us-a" markerHeight="30" markerWidth="30">
+    <path fill="#fff" d="m14 0 9 27L0 10h28L5 27z"/>
+  </marker>
+  <path fill="none" marker-mid="url(#us-a)" d="m0 0 16 11h61 61 61 61 60L47 37h61 61 60 61L16 63h61 61 61 61 60L47 89h61 61 60 61L16 115h61 61 61 61 60L47 141h61 61 60 61L16 166h61 61 61 61 60L47 192h61 61 60 61L16 218h61 61 61 61 60z"/>
+  </symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M2 12h20"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+  </symbol>
+
 </svg>
 
 <div class="print-only" id="print-meta" aria-hidden="true">
@@ -50,7 +238,7 @@ setTimeout(function () { document.body && document.body.classList.add('loaded');
 
 <nav class="nav" aria-label="Primary">
   <div class="wrap">
-    <a class="brand" href="index.html"><img class="brand-logo" src="assets/sigilbadges.svg" alt="sigilbadges" /></a>
+    <a class="brand notranslate" href="index.html"><img class="brand-logo" src="assets/sigilbadges.svg" alt="sigilbadges" /></a>
     <div class="links" id="nav-links">
       <a class="link" href="docs.html#grammar">Grammar</a>
       <a class="link" href="docs.html#styles">Styles</a>
@@ -58,9 +246,9 @@ setTimeout(function () { document.body && document.body.classList.add('loaded');
       <a class="link" href="docs.html#action">GitHub Action</a>
       <a class="link" href="docs.html#ci">CI</a>
       <div class="links-external">
-        <a class="link link--external" href="index.html">Home<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
-        <a class="link link--external" href="docs.html">Docs<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
-        <a class="link link--external" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">GitHub<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external i18n" href="index.html"><span data-i18n-default>Home</span><span data-locale="es" class="notranslate">Inicio</span><span data-locale="it" class="notranslate">Home</span><svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external i18n" href="docs.html"><span data-i18n-default>Docs</span><span data-locale="es" class="notranslate">Documentación</span><span data-locale="it" class="notranslate">Documentazione</span><svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external notranslate" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">GitHub<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
       </div>
     </div>
     <div class="spacer"></div>
@@ -69,6 +257,16 @@ setTimeout(function () { document.body && document.body.classList.add('loaded');
       <span class="search-trigger-label">Search</span>
       <kbd class="search-kbd">S</kbd>
     </button>
+    <div class="locale-switcher notranslate" id="locale-switcher">
+      <button type="button" class="locale-trigger" id="locale-trigger"
+              aria-haspopup="true" aria-expanded="false" aria-controls="locale-menu"
+              aria-label="Choose language">
+        <svg class="locale-trigger-icon" aria-hidden="true"><use href="#icon-globe"/></svg>
+      </button>
+      <ul class="locale-menu" id="locale-menu" role="menu" aria-hidden="true" aria-label="Choose language"></ul>
+      <span class="locale-announce" id="locale-announce" role="status" aria-live="polite"></span>
+    </div>
+    <div id="translate" class="notranslate" hidden></div>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
@@ -119,12 +317,11 @@ setTimeout(function () { document.body && document.body.classList.add('loaded');
 <footer class="reveal-footer">
   <div class="wrap">
     <p>
-      <a href="https://github.com/lucianofedericopereira/sigilbadges">GitHub</a><span class="no-print"> ·</span>
-      <a href="index.html">Home</a><span class="no-print"> ·</span>
-      <a href="docs.html">Docs</a><span class="no-print"> ·</span>
-      <a href="changelog.html">Changelog</a>
+      <a class="notranslate" href="https://github.com/lucianofedericopereira/sigilbadges">GitHub</a><span class="no-print"> ·</span>
+      <a class="i18n" href="index.html"><span data-i18n-default>Home</span><span data-locale="es" class="notranslate">Inicio</span><span data-locale="it" class="notranslate">Home</span></a><span class="no-print"> ·</span>
+      <a class="i18n" href="docs.html"><span data-i18n-default>Docs</span><span data-locale="es" class="notranslate">Documentación</span><span data-locale="it" class="notranslate">Documentazione</span></a>
     </p>
-    <p class="muted"><span class="no-print"><img class="brand-logo brand-logo--sm" src="assets/sigilbadges.svg" alt="" aria-hidden="true" /> sigilbadges · by </span><a href="https://github.com/lucianofedericopereira">Luciano Federico Pereira</a></p>
+    <p class="muted"><span class="no-print notranslate"><img class="brand-logo brand-logo--sm" src="assets/sigilbadges.svg" alt="" aria-hidden="true" /> sigilbadges · by </span><a class="notranslate" href="https://github.com/lucianofedericopereira">Luciano Federico Pereira</a></p>
   </div>
 </footer>
 
@@ -133,6 +330,7 @@ setTimeout(function () { document.body && document.body.classList.add('loaded');
 </button>
 
 <script src="assets/site.js"></script>
+<script src="assets/locale.js"></script>
 <script type="module" src="assets/changelog.js"></script>
 </body>
 </html>
