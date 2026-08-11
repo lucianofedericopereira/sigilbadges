@@ -1,0 +1,92 @@
+name: "sigilbadges — SVG badges for README (Perl)"
+description: "Generate SVG badges (logo + text) from marker comments in your README. Pure Perl, no CPAN dependencies, no interpreter setup."
+author: "Luciano Federico Pereira"
+
+branding:
+  icon: "award"
+  color: "gray-dark"
+
+inputs:
+  file:
+    description: "Markdown file to scan and rewrite."
+    required: false
+    default: "README.md"
+  badges-dir:
+    description: "Where generated badge SVGs are written (relative to the repo root)."
+    required: false
+    default: "assets/badges"
+  check:
+    description: "Do not write; fail the job if the file or any badge is out of date."
+    required: false
+    default: "false"
+  commit:
+    description: "Commit and push the changes back to the branch."
+    required: false
+    default: "true"
+  commit-message:
+    description: "Commit message used when `commit` is true."
+    required: false
+    default: "docs: update badges [skip ci]"
+  commit-user-name:
+    description: "Git user.name for the commit."
+    required: false
+    default: "github-actions[bot]"
+  commit-user-email:
+    description: "Git user.email for the commit."
+    required: false
+    default: "github-actions[bot]@users.noreply.github.com"
+
+outputs:
+  changed:
+    description: "'true' if the file or any badge SVG was updated."
+    value: ${{ steps.sigilbadges.outputs.changed }}
+
+runs:
+  using: "composite"
+  steps:
+    # No "Set up Perl" step: GitHub-hosted runners (Linux, macOS, Windows)
+    # ship a system Perl, and this tool has no CPAN dependencies to
+    # install — the whole point of the exercise. `perl -v` below is just
+    # to record which interpreter ran it in the log, not to provision one.
+    - name: Generate badges
+      id: sigilbadges
+      shell: bash
+      working-directory: ${{ github.workspace }}
+      env:
+        ACTION_PATH: ${{ github.action_path }}
+        INPUT_FILE: ${{ inputs.file }}
+        INPUT_BADGES_DIR: ${{ inputs.badges-dir }}
+        INPUT_CHECK: ${{ inputs.check }}
+      run: |
+        set -euo pipefail
+        echo "::group::perl -v"
+        perl -v
+        echo "::endgroup::"
+        args=(--file "$INPUT_FILE" --badges-dir "$INPUT_BADGES_DIR")
+        [ "$INPUT_CHECK" = "true" ] && args+=(--check)
+        perl "$ACTION_PATH/sigilbadges.pl" "${args[@]}"
+        if git status --porcelain -- "$INPUT_FILE" "$INPUT_BADGES_DIR" | grep -q .; then
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "changed=false" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Commit changes
+      if: ${{ inputs.commit == 'true' && inputs.check != 'true' && steps.sigilbadges.outputs.changed == 'true' }}
+      shell: bash
+      working-directory: ${{ github.workspace }}
+      env:
+        COMMIT_MESSAGE: ${{ inputs.commit-message }}
+        COMMIT_USER_NAME: ${{ inputs.commit-user-name }}
+        COMMIT_USER_EMAIL: ${{ inputs.commit-user-email }}
+      run: |
+        set -euo pipefail
+        git config user.name "$COMMIT_USER_NAME"
+        git config user.email "$COMMIT_USER_EMAIL"
+        git add -A
+        if git diff --cached --quiet; then
+          echo "sigilbadges: nothing to commit"
+          exit 0
+        fi
+        git commit -m "$COMMIT_MESSAGE"
+        git push

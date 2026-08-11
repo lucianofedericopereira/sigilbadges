@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function () { document.body && document.body.classList.add('loaded'); }, 1500);
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>sigilbadges — SVG badges for your README</title>
+<meta name="author" content="Luciano Federico Pereira" />
+<meta name="description" content="Generated SVG badges (logo + text), spliced into your README via marker comments. No template language, no CPAN dependencies, one Perl script." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="sigilbadges — SVG badges for your README" />
+<meta property="og:description" content="Generated SVG badges (logo + text), spliced into your README via marker comments. No template language, no CPAN dependencies, one Perl script." />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%85%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="stylesheet" href="assets/palettes.css" />
+</head>
+<body data-github-repo="lucianofedericopereira/sigilbadges">
+
+<svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+  <symbol id="icon-external" viewBox="0 0 24 24">
+    <path d="M7 17 17 7" />
+    <path d="M8 7h9v9" />
+  </symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20 16 16" />
+  </symbol>
+  <symbol id="icon-chevron-up" viewBox="0 0 24 24">
+    <path d="M5 15 12 8 19 15" />
+  </symbol>
+</svg>
+
+<div class="print-only" id="print-meta" aria-hidden="true">
+  <strong id="print-meta-title"></strong>
+  <span id="print-meta-url"></span>
+  <span id="print-meta-date"></span>
+</div>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="shell">
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#top"><img class="brand-logo" src="assets/sigilbadges.svg" alt="sigilbadges" /></a>
+    <div class="links" id="nav-links">
+      <a class="link" href="#how">How it works</a>
+      <a class="link" href="#styles">Styles</a>
+      <a class="link" href="#quick-start">Quick start</a>
+      <div class="links-external">
+        <a class="link link--external" href="docs.html">Docs<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external" href="changelog.html">Changelog<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">GitHub<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <button type="button" class="search-trigger" id="search-trigger" aria-haspopup="dialog" aria-label="Search or jump to&hellip;">
+      <svg class="search-trigger-icon" aria-hidden="true"><use href="#icon-search"/></svg>
+      <span class="search-trigger-label">Search</span>
+      <kbd class="search-kbd">S</kbd>
+    </button>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<dialog class="search-modal" id="search-modal" aria-label="Search or jump to">
+  <div class="search-input-wrap">
+    <svg aria-hidden="true"><use href="#icon-search"/></svg>
+    <input type="search" id="search-input" placeholder="Search or jump to&hellip;" autocomplete="off" aria-controls="search-results" aria-expanded="false" role="combobox" />
+  </div>
+  <ul class="search-results" id="search-results" role="listbox"></ul>
+</dialog>
+
+<main id="main-content">
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Perl · No dependencies</p>
+    <h1>SVG badges, generated straight into your README</h1>
+    <p class="tagline">Drop a marker comment in your Markdown, run one script (or the GitHub Action), and get logo + text badges rendered as real SVG — spliced back into the file in place.</p>
+    <div class="badges">
+      <span class="badge">Pure core Perl</span>
+      <span class="badge">Zero CPAN deps</span>
+      <span class="badge">No external binary</span>
+      <span class="badge">CI-friendly --check</span>
+    </div>
+    <div class="cta">
+      <a class="btn btn--primary" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="btn btn--ghost" href="docs.html">Read the docs</a>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Marker in, SVG out</h2>
+    <p class="section-lead">No build step, no template engine. The script scans your Markdown for marker comments and rewrites only what's between them.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Write a marker</h3>
+        <p>Drop <code class="inline">&lt;!--[[ badge: logo=php label="PHP" message="8.5" ]]--&gt;...&lt;!--/--&gt;</code> anywhere in your README.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Run the script</h3>
+        <p><code class="inline">perl sigilbadges.pl</code> — or wire it up as a GitHub Action, no interpreter setup required.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>SVG is written</h3>
+        <p>Each distinct badge is rendered once to <code class="inline">assets/badges/</code> and only rewritten if its bytes actually changed.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>README is spliced</h3>
+        <p>The marker's body is replaced with the rendered <code class="inline">&lt;img&gt;</code> — re-running is always safe and idempotent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="styles">
+  <div class="wrap">
+    <p class="eyebrow">Styles</p>
+    <h2>Five renderers, one grammar</h2>
+    <p class="section-lead">Pick a look per badge, or let <code class="inline">chip</code> (the default) handle it.</p>
+    <div class="steps">
+      <div class="step"><img src="assets/badges/style-chip.svg" alt="chip style example" /><h3>chip</h3><p>Gradient chip, logo first — this project's own look.</p></div>
+      <div class="step"><img src="assets/badges/style-flat.svg" alt="flat style example" /><h3>flat</h3><p>The classic shields.io two-tone look.</p></div>
+      <div class="step"><img src="assets/badges/style-flat-square.svg" alt="flat-square style example" /><h3>flat-square</h3><p>Same as flat, sharp corners.</p></div>
+      <div class="step"><img src="assets/badges/style-plastic.svg" alt="plastic style example" /><h3>plastic</h3><p>Two-tone with a glossy highlight band.</p></div>
+      <div class="step"><img src="assets/badges/style-ftb.svg" alt="for-the-badge style example" /><h3>for-the-badge</h3><p>Bigger, bold, uppercase text.</p></div>
+    </div>
+    <p class="section-lead" style="margin-top: 20px"><a href="docs.html#styles">Full style reference in the docs →</a></p>
+  </div>
+</section>
+
+<section id="quick-start">
+  <div class="wrap">
+    <p class="eyebrow">Quick start</p>
+    <h2>Command line</h2>
+    <pre><code>perl sigilbadges.pl [--file README.md] [--badges-dir assets/badges] [--check]</code></pre>
+    <p class="section-lead">Or as a GitHub Action:</p>
+    <pre><code>- uses: lucianofedericopereira/sigilbadges@v0.1.0
+  with:
+    file: README.md</code></pre>
+    <div class="cta">
+      <a class="btn btn--primary" href="docs.html">Full documentation</a>
+      <a class="btn btn--ghost" href="changelog.html">Changelog</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+</div><!-- /.shell -->
+
+<footer class="reveal-footer">
+  <div class="wrap">
+    <p>
+      <a href="https://github.com/lucianofedericopereira/sigilbadges">GitHub</a><span class="no-print"> ·</span>
+      <a href="docs.html">Docs</a><span class="no-print"> ·</span>
+      <a href="changelog.html">Changelog</a>
+    </p>
+    <p class="muted"><span class="no-print"><img class="brand-logo brand-logo--sm" src="assets/sigilbadges.svg" alt="" aria-hidden="true" /> sigilbadges · by </span><a href="https://github.com/lucianofedericopereira">Luciano Federico Pereira</a></p>
+  </div>
+</footer>
+
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg aria-hidden="true"><use href="#icon-chevron-up"/></svg>
+</button>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function () { document.body && document.body.classList.add('loaded'); }, 1500);
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>sigilbadges — Documentation</title>
+<meta name="author" content="Luciano Federico Pereira" />
+<meta name="description" content="sigilbadges documentation: marker grammar, keys, styles, CLI flags, GitHub Action inputs, CI, and Marketplace publishing." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="sigilbadges — Documentation" />
+<meta property="og:description" content="sigilbadges documentation: marker grammar, keys, styles, CLI flags, GitHub Action inputs, CI, and Marketplace publishing." />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%85%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="stylesheet" href="assets/palettes.css" />
+</head>
+<body class="doc" data-github-repo="lucianofedericopereira/sigilbadges">
+
+<svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+  <symbol id="icon-external" viewBox="0 0 24 24">
+    <path d="M7 17 17 7" />
+    <path d="M8 7h9v9" />
+  </symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20 16 16" />
+  </symbol>
+  <symbol id="icon-chevron-up" viewBox="0 0 24 24">
+    <path d="M5 15 12 8 19 15" />
+  </symbol>
+</svg>
+
+<div class="print-only" id="print-meta" aria-hidden="true">
+  <strong id="print-meta-title"></strong>
+  <span id="print-meta-url"></span>
+  <span id="print-meta-date"></span>
+</div>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="shell">
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/sigilbadges.svg" alt="sigilbadges" /></a>
+    <div class="links" id="nav-links">
+      <a class="link" href="#grammar">Grammar</a>
+      <a class="link" href="#styles">Styles</a>
+      <a class="link" href="#keys">Keys</a>
+      <a class="link" href="#logos">Logos</a>
+      <a class="link" href="#cli">CLI</a>
+      <a class="link" href="#action">GitHub Action</a>
+      <a class="link" href="#ci">CI</a>
+      <a class="link" href="#faq">FAQ</a>
+      <div class="links-external">
+        <a class="link link--external" href="index.html">Home<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external" href="changelog.html">Changelog<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">GitHub<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <button type="button" class="search-trigger" id="search-trigger" aria-haspopup="dialog" aria-label="Search or jump to&hellip;">
+      <svg class="search-trigger-icon" aria-hidden="true"><use href="#icon-search"/></svg>
+      <span class="search-trigger-label">Search</span>
+      <kbd class="search-kbd">S</kbd>
+    </button>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<dialog class="search-modal" id="search-modal" aria-label="Search or jump to">
+  <div class="search-input-wrap">
+    <svg aria-hidden="true"><use href="#icon-search"/></svg>
+    <input type="search" id="search-input" placeholder="Search or jump to&hellip;" autocomplete="off" aria-controls="search-results" aria-expanded="false" role="combobox" />
+  </div>
+  <ul class="search-results" id="search-results" role="listbox"></ul>
+</dialog>
+
+<main id="main-content">
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Documentation</p>
+    <h1>sigilbadges</h1>
+    <p class="tagline">Generated SVG badges (logo + text), spliced into your README via marker comments. No template language, no CPAN dependencies, one Perl script.</p>
+    <div class="cta">
+      <a class="btn btn--primary" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="btn btn--ghost" href="changelog.html">Changelog</a>
+    </div>
+  </div>
+</header>
+
+<section id="grammar">
+  <div class="wrap doc">
+    <p class="eyebrow">Grammar</p>
+    <h2>Marker syntax</h2>
+    <p class="section-lead">A single badge, or a responsive row of badges sharing one set of defaults. Both idioms keep their spec in the marker's own tag rather than the disposable body, so a re-run never loses it.</p>
+
+    <h3>A single badge</h3>
+    <pre><code>&lt;!--[[ badge: logo=php label="PHP" message="8.5" ]]--&gt;...&lt;!--/--&gt;</code></pre>
+
+    <h3>A row of badges</h3>
+    <pre><code>&lt;!--[[ badge-row: style=chip
+logo=php label="PHP" message="8.5"
+logo=node message="20.x"
+]]--&gt;...&lt;!--/--&gt;</code></pre>
+    <p>The <code class="inline">badge-row: key=value ...</code> header is optional and sets defaults every line inherits/overrides. The body between the markers is pure rendered output, fully regenerated on every run — never hand-edit it.</p>
+    <div class="callout">Real markers have no space after <code class="inline">&lt;!--</code> or before <code class="inline">--&gt;</code>. The scanner matches anywhere in the file, including inside fenced code blocks — it has no notion of Markdown fences.</div>
+  </div>
+</section>
+
+<section id="keys">
+  <div class="wrap doc">
+    <p class="eyebrow">Reference</p>
+    <h2>Keys</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>key</th><th>meaning</th><th>default</th></tr></thead>
+        <tbody>
+          <tr><td><code class="inline">logo</code></td><td>name of an SVG in <code class="inline">assets/logos/</code> (no extension)</td><td>—</td></tr>
+          <tr><td><code class="inline">label</code></td><td>left-hand text</td><td>—</td></tr>
+          <tr><td><code class="inline">message</code></td><td>right-hand text</td><td>—</td></tr>
+          <tr><td><code class="inline">color</code></td><td>bare hex, no <code class="inline">#</code> (e.g. <code class="inline">color=336791</code>)</td><td>logo's brand color, else <code class="inline">555555</code></td></tr>
+          <tr><td><code class="inline">label-color</code></td><td>bare hex for the label segment</td><td><code class="inline">555555</code></td></tr>
+          <tr><td><code class="inline">logo-color</code></td><td>bare hex to recolor the logo</td><td><code class="inline">FFFFFF</code></td></tr>
+          <tr><td><code class="inline">style</code></td><td><code class="inline">chip</code>, <code class="inline">flat</code>, <code class="inline">flat-square</code>, <code class="inline">plastic</code>, <code class="inline">for-the-badge</code></td><td><code class="inline">chip</code></td></tr>
+          <tr><td><code class="inline">id</code></td><td>explicit filename stem (<code class="inline">assets/badges/&lt;id&gt;.svg</code>)</td><td>derived from <code class="inline">logo</code> / <code class="inline">label</code> / <code class="inline">message</code></td></tr>
+          <tr><td><code class="inline">link</code></td><td>wraps the badge <code class="inline">&lt;img&gt;</code> in an <code class="inline">&lt;a href="..."&gt;</code></td><td>—</td></tr>
+          <tr><td><code class="inline">alt</code></td><td><code class="inline">alt</code> text on the <code class="inline">&lt;img&gt;</code></td><td><code class="inline">label</code> + <code class="inline">message</code>, else <code class="inline">logo</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-lead" style="margin-top: 16px">Colors are always a bare 6-digit hex value — no CSS color names, no leading <code class="inline">#</code>.</p>
+  </div>
+</section>
+
+<section id="styles">
+  <div class="wrap doc">
+    <p class="eyebrow">Reference</p>
+    <h2>Styles</h2>
+    <p class="section-lead">Five renderers, one grammar. <code class="inline">flat</code>, <code class="inline">flat-square</code>, and <code class="inline">plastic</code> only render as two colored segments when <em>both</em> <code class="inline">label</code> and <code class="inline">message</code> are given (shields.io's own convention) — with just one of the two, it collapses to a single segment in <code class="inline">color</code>.</p>
+
+    <div class="variant">
+      <div class="head"><span class="name">chip</span><span class="desc">rounded chip, top-to-bottom gradient, logo first — this project's own look</span></div>
+      <div class="body"><img src="assets/badges/style-chip.svg" alt="React 18.x, chip style" /></div>
+    </div>
+    <div class="variant">
+      <div class="head"><span class="name">flat</span><span class="desc">two-tone rectangle, rounded corners — the classic shields.io look</span></div>
+      <div class="body"><img src="assets/badges/style-flat.svg" alt="build passing, flat style" /></div>
+    </div>
+    <div class="variant">
+      <div class="head"><span class="name">flat-square</span><span class="desc">same two-tone layout as flat, sharp corners</span></div>
+      <div class="body"><img src="assets/badges/style-flat-square.svg" alt="coverage 92%, flat-square style" /></div>
+    </div>
+    <div class="variant">
+      <div class="head"><span class="name">plastic</span><span class="desc">same two-tone layout, with a glossy highlight band</span></div>
+      <div class="body"><img src="assets/badges/style-plastic.svg" alt="version v2.0.4, plastic style" /></div>
+    </div>
+    <div class="variant">
+      <div class="head"><span class="name">for-the-badge</span><span class="desc">bigger, bold, uppercase label/message text</span></div>
+      <div class="body"><img src="assets/badges/style-ftb.svg" alt="docker ready, for-the-badge style" /></div>
+    </div>
+  </div>
+</section>
+
+<section id="logos">
+  <div class="wrap doc">
+    <p class="eyebrow">Reference</p>
+    <h2>Bundled logos</h2>
+    <p class="section-lead">Available under <code class="inline">assets/logos/&lt;name&gt;.svg</code>, each with a default brand color. A badge with <code class="inline">logo=</code> and no <code class="inline">color=</code> uses this table automatically.</p>
+    <div class="swatches">
+      <div class="swatch"><span class="dot" style="background:#0052CC"></span>agile <span class="tag">0052CC</span></div>
+      <div class="swatch"><span class="dot" style="background:#EC4899"></span>ai <span class="tag">EC4899</span></div>
+      <div class="swatch"><span class="dot" style="background:#6366F1"></span>api <span class="tag">6366F1</span></div>
+      <div class="swatch"><span class="dot" style="background:#2496ED"></span>docker <span class="tag">2496ED</span></div>
+      <div class="swatch"><span class="dot" style="background:#F05032"></span>git <span class="tag">F05032</span></div>
+      <div class="swatch"><span class="dot" style="background:#24292F"></span>github <span class="tag">24292F</span></div>
+      <div class="swatch"><span class="dot" style="background:#E34F26"></span>html <span class="tag">E34F26</span></div>
+      <div class="swatch"><span class="dot" style="background:#FF2D20"></span>laravel <span class="tag">FF2D20</span></div>
+      <div class="swatch"><span class="dot" style="background:#3A3A3A"></span>linux <span class="tag">3A3A3A</span></div>
+      <div class="swatch"><span class="dot" style="background:#47A248"></span>mongodb <span class="tag">47A248</span></div>
+      <div class="swatch"><span class="dot" style="background:#4479A1"></span>mysql <span class="tag">4479A1</span></div>
+      <div class="swatch"><span class="dot" style="background:#5FA04E"></span>node <span class="tag">5FA04E</span></div>
+      <div class="swatch"><span class="dot" style="background:#CB3837"></span>npm <span class="tag">CB3837</span></div>
+      <div class="swatch"><span class="dot" style="background:#777BB4"></span>php <span class="tag">777BB4</span></div>
+      <div class="swatch"><span class="dot" style="background:#336791"></span>postgres <span class="tag">336791</span></div>
+      <div class="swatch"><span class="dot" style="background:#3776AB"></span>python <span class="tag">3776AB</span></div>
+      <div class="swatch"><span class="dot" style="background:#20232A"></span>react <span class="tag">20232A</span></div>
+      <div class="swatch"><span class="dot" style="background:#06B6D4"></span>tailwind <span class="tag">06B6D4</span></div>
+      <div class="swatch"><span class="dot" style="background:#7C3AED"></span>team <span class="tag">7C3AED</span></div>
+      <div class="swatch"><span class="dot" style="background:#3178C6"></span>typescript <span class="tag">3178C6</span></div>
+      <div class="swatch"><span class="dot" style="background:#42B883"></span>vue <span class="tag">42B883</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="cli">
+  <div class="wrap doc">
+    <p class="eyebrow">Usage</p>
+    <h2>Command line</h2>
+    <pre><code>perl sigilbadges.pl [--file README.md] [--badges-dir assets/badges] [--check]</code></pre>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>flag</th><th>meaning</th><th>default</th></tr></thead>
+        <tbody>
+          <tr><td><code class="inline">--file</code></td><td>the Markdown file to scan and rewrite</td><td><code class="inline">README.md</code></td></tr>
+          <tr><td><code class="inline">--badges-dir</code></td><td>where generated <code class="inline">.svg</code> files are written</td><td><code class="inline">assets/badges</code></td></tr>
+          <tr><td><code class="inline">--check</code></td><td>exit non-zero if the file or any badge is out of date, without writing anything</td><td>off — CI-friendly</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="action">
+  <div class="wrap doc">
+    <p class="eyebrow">GitHub Marketplace</p>
+    <h2>GitHub Action</h2>
+    <p class="section-lead">The same script, wrapped as a composite action — no interpreter setup step, since GitHub-hosted runners ship Perl natively.</p>
+    <pre><code>- uses: lucianofedericopereira/sigilbadges@v0.1.0
+  with:
+    file: README.md
+    badges-dir: assets/badges
+    check: "false"
+    commit: "true"</code></pre>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>input</th><th>meaning</th><th>default</th></tr></thead>
+        <tbody>
+          <tr><td><code class="inline">file</code></td><td>Markdown file to scan and rewrite</td><td><code class="inline">README.md</code></td></tr>
+          <tr><td><code class="inline">badges-dir</code></td><td>where generated SVGs are written</td><td><code class="inline">assets/badges</code></td></tr>
+          <tr><td><code class="inline">check</code></td><td>fail the job instead of writing, when out of date</td><td><code class="inline">false</code></td></tr>
+          <tr><td><code class="inline">commit</code></td><td>commit and push changes back to the branch</td><td><code class="inline">true</code></td></tr>
+          <tr><td><code class="inline">commit-message</code></td><td>commit message used when <code class="inline">commit</code> is true</td><td><code class="inline">docs: update badges [skip ci]</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Marketplace branding uses the <strong>award</strong> icon on a <strong>gray-dark</strong> background — the same graphite tone as the <code class="inline">sigilbadges.svg</code> wordmark, not the green GitHub defaults to for most starter actions.</p>
+  </div>
+</section>
+
+<section id="ci">
+  <div class="wrap doc">
+    <p class="eyebrow">Continuous Integration</p>
+    <h2>CI</h2>
+    <p class="section-lead">The workflow in <code class="inline">.github/workflows/ci.yml</code> runs the test suite unmodified across a matrix of Perl releases (native runner + older interpreters), and a dogfooding job that runs the action against this repo's own <code class="inline">README.md</code> with <code class="inline">--check</code> — the same pattern the badges below in the changelog are generated with.</p>
+    <pre><code>prove -r t</code></pre>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap doc">
+    <p class="eyebrow">FAQ</p>
+    <h2>Frequently asked</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span>Does this need any CPAN modules?</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel">No. <code class="inline">Getopt::Long</code>, <code class="inline">File::Basename</code>, <code class="inline">File::Path</code>, and <code class="inline">FindBin</code> all ship with core Perl.</p></div></div>
+      </div>
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span>Can I use a logo that isn't bundled?</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel">Not yet — <code class="inline">logo=</code> only accepts names with a matching file under <code class="inline">assets/logos/</code>. Drop in your own <code class="inline">.svg</code> there to add one.</p></div></div>
+      </div>
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span>Is re-running the script safe?</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel">Yes — it's idempotent. Unchanged badges are never rewritten, and <code class="inline">--check</code> exits non-zero without touching disk at all.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+</div><!-- /.shell -->
+
+<footer class="reveal-footer">
+  <div class="wrap">
+    <p>
+      <a href="https://github.com/lucianofedericopereira/sigilbadges">GitHub</a><span class="no-print"> ·</span>
+      <a href="index.html">Home</a><span class="no-print"> ·</span>
+      <a href="docs.html">Docs</a><span class="no-print"> ·</span>
+      <a href="changelog.html">Changelog</a>
+    </p>
+    <p class="muted"><span class="no-print"><img class="brand-logo brand-logo--sm" src="assets/sigilbadges.svg" alt="" aria-hidden="true" /> sigilbadges · by </span><a href="https://github.com/lucianofedericopereira">Luciano Federico Pereira</a></p>
+  </div>
+</footer>
+
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg aria-hidden="true"><use href="#icon-chevron-up"/></svg>
+</button>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

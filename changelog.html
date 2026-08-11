@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function () { document.body && document.body.classList.add('loaded'); }, 1500);
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>Changelog · sigilbadges</title>
+<meta name="author" content="Luciano Federico Pereira" />
+<meta name="description" content="sigilbadges release notes — every version, as it ships." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Changelog · sigilbadges" />
+<meta property="og:description" content="sigilbadges release notes — every version, as it ships." />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%85%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="stylesheet" href="assets/palettes.css" />
+<link rel="stylesheet" href="assets/changelog.css" />
+</head>
+<body data-github-repo="lucianofedericopereira/sigilbadges">
+
+<svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+  <symbol id="icon-external" viewBox="0 0 24 24">
+    <path d="M7 17 17 7" />
+    <path d="M8 7h9v9" />
+  </symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20 16 16" />
+  </symbol>
+  <symbol id="icon-chevron-up" viewBox="0 0 24 24">
+    <path d="M5 15 12 8 19 15" />
+  </symbol>
+</svg>
+
+<div class="print-only" id="print-meta" aria-hidden="true">
+  <strong id="print-meta-title"></strong>
+  <span id="print-meta-url"></span>
+  <span id="print-meta-date"></span>
+</div>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="shell">
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/sigilbadges.svg" alt="sigilbadges" /></a>
+    <div class="links" id="nav-links">
+      <a class="link" href="docs.html#grammar">Grammar</a>
+      <a class="link" href="docs.html#styles">Styles</a>
+      <a class="link" href="docs.html#keys">Keys</a>
+      <a class="link" href="docs.html#action">GitHub Action</a>
+      <a class="link" href="docs.html#ci">CI</a>
+      <div class="links-external">
+        <a class="link link--external" href="index.html">Home<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external" href="docs.html">Docs<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+        <a class="link link--external" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">GitHub<svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <button type="button" class="search-trigger" id="search-trigger" aria-haspopup="dialog" aria-label="Search or jump to&hellip;">
+      <svg class="search-trigger-icon" aria-hidden="true"><use href="#icon-search"/></svg>
+      <span class="search-trigger-label">Search</span>
+      <kbd class="search-kbd">S</kbd>
+    </button>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<dialog class="search-modal" id="search-modal" aria-label="Search or jump to">
+  <div class="search-input-wrap">
+    <svg aria-hidden="true"><use href="#icon-search"/></svg>
+    <input type="search" id="search-input" placeholder="Search or jump to&hellip;" autocomplete="off" aria-controls="search-results" aria-expanded="false" role="combobox" />
+  </div>
+  <ul class="search-results" id="search-results" role="listbox"></ul>
+</dialog>
+
+<main id="main-content">
+
+<div class="changelog-layout">
+  <article class="article">
+    <p class="changelog-eyebrow">Release Notes</p>
+    <h1 class="title" id="pageTitle">Changelog</h1>
+    <p class="dek" id="dek"></p>
+    <p class="changelog-byline">
+      <span>Generated from changelog.md</span>
+      <span class="dot"></span>
+      <span id="totalRead">&ndash; min read</span>
+    </p>
+
+    <div id="sections">
+      <p class="changelog-loading">Loading changelog&hellip;</p>
+    </div>
+  </article>
+
+  <aside>
+    <p class="changelog-toc-label">Versions</p>
+    <div class="changelog-toc-meta">
+      <a class="changelog-current-version" id="currentVersion" target="_blank" rel="noopener"></a>
+    </div>
+    <ul class="changelog-toc-list" id="tocList"></ul>
+  </aside>
+</div>
+
+</main>
+
+</div><!-- /.shell -->
+
+<footer class="reveal-footer">
+  <div class="wrap">
+    <p>
+      <a href="https://github.com/lucianofedericopereira/sigilbadges">GitHub</a><span class="no-print"> ·</span>
+      <a href="index.html">Home</a><span class="no-print"> ·</span>
+      <a href="docs.html">Docs</a><span class="no-print"> ·</span>
+      <a href="changelog.html">Changelog</a>
+    </p>
+    <p class="muted"><span class="no-print"><img class="brand-logo brand-logo--sm" src="assets/sigilbadges.svg" alt="" aria-hidden="true" /> sigilbadges · by </span><a href="https://github.com/lucianofedericopereira">Luciano Federico Pereira</a></p>
+  </div>
+</footer>
+
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg aria-hidden="true"><use href="#icon-chevron-up"/></svg>
+</button>
+
+<script src="assets/site.js"></script>
+<script type="module" src="assets/changelog.js"></script>
+</body>
+</html>

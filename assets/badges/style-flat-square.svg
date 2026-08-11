@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="101.08" height="20" viewBox="0 0 101.08 20">
+  <g>
+    <rect width="65.28" height="20" fill="#555555"/>
+    <rect x="65.28" width="35.8" height="20" fill="#44CC11"/>
+  </g>
+  <text x="32.64" y="13.85" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">coverage</text>
+  <text x="83.18" y="13.85" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">92%</text>
+</svg>

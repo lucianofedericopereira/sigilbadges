@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="285" height="1304" viewBox="0 0 285 1304" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" role="img" aria-label="sigilbadges project structure">
+<style>
+  .bg { fill: #ffffff; stroke: #d1d9e0; }
+  .name-dir { fill: #0969da; font-weight: 600; }
+  .name-file { fill: #1f2328; }
+  .comment { fill: #59636e; }
+  .folder { fill: #54aeff; }
+  .file { fill: #eaeef2; stroke: #afb8c1; stroke-width: 1; }
+  .file-fold { fill: none; stroke: #afb8c1; stroke-width: 1; }
+  .guide { stroke: #8c959f; stroke-width: 1; }
+  .dot { fill: #8c959f; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #0d1117; stroke: #30363d; }
+    .name-dir { fill: #2f81f7; }
+    .name-file { fill: #e6edf3; }
+    .comment { fill: #8b949e; }
+    .folder { fill: #388bfd; }
+    .file { fill: #21262d; stroke: #484f58; }
+    .file-fold { stroke: #484f58; }
+    .guide { stroke: #6e7681; }
+    .dot { fill: #6e7681; }
+  }
+</style>
+
+<rect x="0.5" y="0.5" width="284" height="1303" rx="6" class="bg"/>
+<line class="guide" x1="27.0" y1="14.0" x2="27.0" y2="36.0"/>
+<line class="guide" x1="27.0" y1="25.0" x2="38.0" y2="25.0"/>
+<line class="guide" x1="27.0" y1="36" x2="27.0" y2="58"/>
+<path class="guide" fill="none" d="M49.0 36 V41.0 Q49.0 47.0 55.0 47.0 H60.0"/>
+<line class="guide" x1="27.0" y1="58.0" x2="27.0" y2="80.0"/>
+<line class="guide" x1="27.0" y1="69.0" x2="38.0" y2="69.0"/>
+<line class="guide" x1="27.0" y1="80" x2="27.0" y2="102"/>
+<path class="guide" fill="none" d="M49.0 80 V85.0 Q49.0 91.0 55.0 91.0 H60.0"/>
+<line class="guide" x1="27.0" y1="102" x2="27.0" y2="124"/>
+<path class="guide" fill="none" d="M71.0 102 V107.0 Q71.0 113.0 77.0 113.0 H82.0"/>
+<line class="guide" x1="27.0" y1="124.0" x2="27.0" y2="146.0"/>
+<line class="guide" x1="27.0" y1="135.0" x2="38.0" y2="135.0"/>
+<line class="guide" x1="27.0" y1="146" x2="27.0" y2="168"/>
+<line class="guide" x1="49.0" y1="146.0" x2="49.0" y2="168.0"/>
+<line class="guide" x1="49.0" y1="157.0" x2="60.0" y2="157.0"/>
+<line class="guide" x1="27.0" y1="168" x2="27.0" y2="190"/>
+<line class="guide" x1="49.0" y1="168" x2="49.0" y2="190"/>
+<line class="guide" x1="71.0" y1="168.0" x2="71.0" y2="190.0"/>
+<line class="guide" x1="71.0" y1="179.0" x2="82.0" y2="179.0"/>
+<line class="guide" x1="27.0" y1="190" x2="27.0" y2="212"/>
+<line class="guide" x1="49.0" y1="190" x2="49.0" y2="212"/>
+<line class="guide" x1="71.0" y1="190.0" x2="71.0" y2="212.0"/>
+<line class="guide" x1="71.0" y1="201.0" x2="82.0" y2="201.0"/>
+<line class="guide" x1="27.0" y1="212" x2="27.0" y2="234"/>
+<line class="guide" x1="49.0" y1="212" x2="49.0" y2="234"/>
+<line class="guide" x1="71.0" y1="212.0" x2="71.0" y2="234.0"/>
+<line class="guide" x1="71.0" y1="223.0" x2="82.0" y2="223.0"/>
+<line class="guide" x1="27.0" y1="234" x2="27.0" y2="256"/>
+<line class="guide" x1="49.0" y1="234" x2="49.0" y2="256"/>
+<line class="guide" x1="71.0" y1="234.0" x2="71.0" y2="256.0"/>
+<line class="guide" x1="71.0" y1="245.0" x2="82.0" y2="245.0"/>
+<line class="guide" x1="27.0" y1="256" x2="27.0" y2="278"/>
+<line class="guide" x1="49.0" y1="256" x2="49.0" y2="278"/>
+<line class="guide" x1="71.0" y1="256.0" x2="71.0" y2="278.0"/>
+<line class="guide" x1="71.0" y1="267.0" x2="82.0" y2="267.0"/>
+<line class="guide" x1="27.0" y1="278" x2="27.0" y2="300"/>
+<line class="guide" x1="49.0" y1="278" x2="49.0" y2="300"/>
+<line class="guide" x1="71.0" y1="278.0" x2="71.0" y2="300.0"/>
+<line class="guide" x1="71.0" y1="289.0" x2="82.0" y2="289.0"/>
+<line class="guide" x1="27.0" y1="300" x2="27.0" y2="322"/>
+<line class="guide" x1="49.0" y1="300" x2="49.0" y2="322"/>
+<line class="guide" x1="71.0" y1="300.0" x2="71.0" y2="322.0"/>
+<line class="guide" x1="71.0" y1="311.0" x2="82.0" y2="311.0"/>
+<line class="guide" x1="27.0" y1="322" x2="27.0" y2="344"/>
+<line class="guide" x1="49.0" y1="322" x2="49.0" y2="344"/>
+<line class="guide" x1="71.0" y1="322.0" x2="71.0" y2="344.0"/>
+<line class="guide" x1="71.0" y1="333.0" x2="82.0" y2="333.0"/>
+<line class="guide" x1="27.0" y1="344" x2="27.0" y2="366"/>
+<line class="guide" x1="49.0" y1="344" x2="49.0" y2="366"/>
+<path class="guide" fill="none" d="M71.0 344 V349.0 Q71.0 355.0 77.0 355.0 H82.0"/>
+<line class="guide" x1="27.0" y1="366" x2="27.0" y2="388"/>
+<line class="guide" x1="49.0" y1="366.0" x2="49.0" y2="388.0"/>
+<line class="guide" x1="49.0" y1="377.0" x2="60.0" y2="377.0"/>
+<line class="guide" x1="27.0" y1="388" x2="27.0" y2="410"/>
+<line class="guide" x1="49.0" y1="388" x2="49.0" y2="410"/>
+<line class="guide" x1="71.0" y1="388.0" x2="71.0" y2="410.0"/>
+<line class="guide" x1="71.0" y1="399.0" x2="82.0" y2="399.0"/>
+<line class="guide" x1="27.0" y1="410" x2="27.0" y2="432"/>
+<line class="guide" x1="49.0" y1="410" x2="49.0" y2="432"/>
+<line class="guide" x1="71.0" y1="410.0" x2="71.0" y2="432.0"/>
+<line class="guide" x1="71.0" y1="421.0" x2="82.0" y2="421.0"/>
+<line class="guide" x1="27.0" y1="432" x2="27.0" y2="454"/>
+<line class="guide" x1="49.0" y1="432" x2="49.0" y2="454"/>
+<line class="guide" x1="71.0" y1="432.0" x2="71.0" y2="454.0"/>
+<line class="guide" x1="71.0" y1="443.0" x2="82.0" y2="443.0"/>
+<line class="guide" x1="27.0" y1="454" x2="27.0" y2="476"/>
+<line class="guide" x1="49.0" y1="454" x2="49.0" y2="476"/>
+<line class="guide" x1="71.0" y1="454.0" x2="71.0" y2="476.0"/>
+<line class="guide" x1="71.0" y1="465.0" x2="82.0" y2="465.0"/>
+<line class="guide" x1="27.0" y1="476" x2="27.0" y2="498"/>
+<line class="guide" x1="49.0" y1="476" x2="49.0" y2="498"/>
+<line class="guide" x1="71.0" y1="476.0" x2="71.0" y2="498.0"/>
+<line class="guide" x1="71.0" y1="487.0" x2="82.0" y2="487.0"/>
+<line class="guide" x1="27.0" y1="498" x2="27.0" y2="520"/>
+<line class="guide" x1="49.0" y1="498" x2="49.0" y2="520"/>
+<line class="guide" x1="71.0" y1="498.0" x2="71.0" y2="520.0"/>
+<line class="guide" x1="71.0" y1="509.0" x2="82.0" y2="509.0"/>
+<line class="guide" x1="27.0" y1="520" x2="27.0" y2="542"/>
+<line class="guide" x1="49.0" y1="520" x2="49.0" y2="542"/>
+<line class="guide" x1="71.0" y1="520.0" x2="71.0" y2="542.0"/>
+<line class="guide" x1="71.0" y1="531.0" x2="82.0" y2="531.0"/>
+<line class="guide" x1="27.0" y1="542" x2="27.0" y2="564"/>
+<line class="guide" x1="49.0" y1="542" x2="49.0" y2="564"/>
+<line class="guide" x1="71.0" y1="542.0" x2="71.0" y2="564.0"/>
+<line class="guide" x1="71.0" y1="553.0" x2="82.0" y2="553.0"/>
+<line class="guide" x1="27.0" y1="564" x2="27.0" y2="586"/>
+<line class="guide" x1="49.0" y1="564" x2="49.0" y2="586"/>
+<line class="guide" x1="71.0" y1="564.0" x2="71.0" y2="586.0"/>
+<line class="guide" x1="71.0" y1="575.0" x2="82.0" y2="575.0"/>
+<line class="guide" x1="27.0" y1="586" x2="27.0" y2="608"/>
+<line class="guide" x1="49.0" y1="586" x2="49.0" y2="608"/>
+<line class="guide" x1="71.0" y1="586.0" x2="71.0" y2="608.0"/>
+<line class="guide" x1="71.0" y1="597.0" x2="82.0" y2="597.0"/>
+<line class="guide" x1="27.0" y1="608" x2="27.0" y2="630"/>
+<line class="guide" x1="49.0" y1="608" x2="49.0" y2="630"/>
+<line class="guide" x1="71.0" y1="608.0" x2="71.0" y2="630.0"/>
+<line class="guide" x1="71.0" y1="619.0" x2="82.0" y2="619.0"/>
+<line class="guide" x1="27.0" y1="630" x2="27.0" y2="652"/>
+<line class="guide" x1="49.0" y1="630" x2="49.0" y2="652"/>
+<line class="guide" x1="71.0" y1="630.0" x2="71.0" y2="652.0"/>
+<line class="guide" x1="71.0" y1="641.0" x2="82.0" y2="641.0"/>
+<line class="guide" x1="27.0" y1="652" x2="27.0" y2="674"/>
+<line class="guide" x1="49.0" y1="652" x2="49.0" y2="674"/>
+<line class="guide" x1="71.0" y1="652.0" x2="71.0" y2="674.0"/>
+<line class="guide" x1="71.0" y1="663.0" x2="82.0" y2="663.0"/>
+<line class="guide" x1="27.0" y1="674" x2="27.0" y2="696"/>
+<line class="guide" x1="49.0" y1="674" x2="49.0" y2="696"/>
+<line class="guide" x1="71.0" y1="674.0" x2="71.0" y2="696.0"/>
+<line class="guide" x1="71.0" y1="685.0" x2="82.0" y2="685.0"/>
+<line class="guide" x1="27.0" y1="696" x2="27.0" y2="718"/>
+<line class="guide" x1="49.0" y1="696" x2="49.0" y2="718"/>
+<line class="guide" x1="71.0" y1="696.0" x2="71.0" y2="718.0"/>
+<line class="guide" x1="71.0" y1="707.0" x2="82.0" y2="707.0"/>
+<line class="guide" x1="27.0" y1="718" x2="27.0" y2="740"/>
+<line class="guide" x1="49.0" y1="718" x2="49.0" y2="740"/>
+<line class="guide" x1="71.0" y1="718.0" x2="71.0" y2="740.0"/>
+<line class="guide" x1="71.0" y1="729.0" x2="82.0" y2="729.0"/>
+<line class="guide" x1="27.0" y1="740" x2="27.0" y2="762"/>
+<line class="guide" x1="49.0" y1="740" x2="49.0" y2="762"/>
+<line class="guide" x1="71.0" y1="740.0" x2="71.0" y2="762.0"/>
+<line class="guide" x1="71.0" y1="751.0" x2="82.0" y2="751.0"/>
+<line class="guide" x1="27.0" y1="762" x2="27.0" y2="784"/>
+<line class="guide" x1="49.0" y1="762" x2="49.0" y2="784"/>
+<line class="guide" x1="71.0" y1="762.0" x2="71.0" y2="784.0"/>
+<line class="guide" x1="71.0" y1="773.0" x2="82.0" y2="773.0"/>
+<line class="guide" x1="27.0" y1="784" x2="27.0" y2="806"/>
+<line class="guide" x1="49.0" y1="784" x2="49.0" y2="806"/>
+<line class="guide" x1="71.0" y1="784.0" x2="71.0" y2="806.0"/>
+<line class="guide" x1="71.0" y1="795.0" x2="82.0" y2="795.0"/>
+<line class="guide" x1="27.0" y1="806" x2="27.0" y2="828"/>
+<line class="guide" x1="49.0" y1="806" x2="49.0" y2="828"/>
+<line class="guide" x1="71.0" y1="806.0" x2="71.0" y2="828.0"/>
+<line class="guide" x1="71.0" y1="817.0" x2="82.0" y2="817.0"/>
+<line class="guide" x1="27.0" y1="828" x2="27.0" y2="850"/>
+<line class="guide" x1="49.0" y1="828" x2="49.0" y2="850"/>
+<path class="guide" fill="none" d="M71.0 828 V833.0 Q71.0 839.0 77.0 839.0 H82.0"/>
+<line class="guide" x1="27.0" y1="850" x2="27.0" y2="872"/>
+<line class="guide" x1="49.0" y1="850.0" x2="49.0" y2="872.0"/>
+<line class="guide" x1="49.0" y1="861.0" x2="60.0" y2="861.0"/>
+<line class="guide" x1="27.0" y1="872" x2="27.0" y2="894"/>
+<line class="guide" x1="49.0" y1="872.0" x2="49.0" y2="894.0"/>
+<line class="guide" x1="49.0" y1="883.0" x2="60.0" y2="883.0"/>
+<line class="guide" x1="27.0" y1="894" x2="27.0" y2="916"/>
+<line class="guide" x1="49.0" y1="894.0" x2="49.0" y2="916.0"/>
+<line class="guide" x1="49.0" y1="905.0" x2="60.0" y2="905.0"/>
+<line class="guide" x1="27.0" y1="916" x2="27.0" y2="938"/>
+<line class="guide" x1="49.0" y1="916.0" x2="49.0" y2="938.0"/>
+<line class="guide" x1="49.0" y1="927.0" x2="60.0" y2="927.0"/>
+<line class="guide" x1="27.0" y1="938" x2="27.0" y2="960"/>
+<line class="guide" x1="49.0" y1="938.0" x2="49.0" y2="960.0"/>
+<line class="guide" x1="49.0" y1="949.0" x2="60.0" y2="949.0"/>
+<line class="guide" x1="27.0" y1="960" x2="27.0" y2="982"/>
+<path class="guide" fill="none" d="M49.0 960 V965.0 Q49.0 971.0 55.0 971.0 H60.0"/>
+<line class="guide" x1="27.0" y1="982.0" x2="27.0" y2="1004.0"/>
+<line class="guide" x1="27.0" y1="993.0" x2="38.0" y2="993.0"/>
+<line class="guide" x1="27.0" y1="1004" x2="27.0" y2="1026"/>
+<line class="guide" x1="49.0" y1="1004.0" x2="49.0" y2="1026.0"/>
+<line class="guide" x1="49.0" y1="1015.0" x2="60.0" y2="1015.0"/>
+<line class="guide" x1="27.0" y1="1026" x2="27.0" y2="1048"/>
+<line class="guide" x1="49.0" y1="1026.0" x2="49.0" y2="1048.0"/>
+<line class="guide" x1="49.0" y1="1037.0" x2="60.0" y2="1037.0"/>
+<line class="guide" x1="27.0" y1="1048" x2="27.0" y2="1070"/>
+<line class="guide" x1="49.0" y1="1048.0" x2="49.0" y2="1070.0"/>
+<line class="guide" x1="49.0" y1="1059.0" x2="60.0" y2="1059.0"/>
+<line class="guide" x1="27.0" y1="1070" x2="27.0" y2="1092"/>
+<line class="guide" x1="49.0" y1="1070.0" x2="49.0" y2="1092.0"/>
+<line class="guide" x1="49.0" y1="1081.0" x2="60.0" y2="1081.0"/>
+<line class="guide" x1="27.0" y1="1092" x2="27.0" y2="1114"/>
+<line class="guide" x1="49.0" y1="1092.0" x2="49.0" y2="1114.0"/>
+<line class="guide" x1="49.0" y1="1103.0" x2="60.0" y2="1103.0"/>
+<line class="guide" x1="27.0" y1="1114" x2="27.0" y2="1136"/>
+<path class="guide" fill="none" d="M49.0 1114 V1119.0 Q49.0 1125.0 55.0 1125.0 H60.0"/>
+<line class="guide" x1="27.0" y1="1136.0" x2="27.0" y2="1158.0"/>
+<line class="guide" x1="27.0" y1="1147.0" x2="38.0" y2="1147.0"/>
+<line class="guide" x1="27.0" y1="1158.0" x2="27.0" y2="1180.0"/>
+<line class="guide" x1="27.0" y1="1169.0" x2="38.0" y2="1169.0"/>
+<line class="guide" x1="27.0" y1="1180.0" x2="27.0" y2="1202.0"/>
+<line class="guide" x1="27.0" y1="1191.0" x2="38.0" y2="1191.0"/>
+<line class="guide" x1="27.0" y1="1202.0" x2="27.0" y2="1224.0"/>
+<line class="guide" x1="27.0" y1="1213.0" x2="38.0" y2="1213.0"/>
+<line class="guide" x1="27.0" y1="1224.0" x2="27.0" y2="1246.0"/>
+<line class="guide" x1="27.0" y1="1235.0" x2="38.0" y2="1235.0"/>
+<line class="guide" x1="27.0" y1="1246.0" x2="27.0" y2="1268.0"/>
+<line class="guide" x1="27.0" y1="1257.0" x2="38.0" y2="1257.0"/>
+<path class="guide" fill="none" d="M27.0 1268 V1273.0 Q27.0 1279.0 33.0 1279.0 H38.0"/>
+<circle class="dot" cx="27.0" cy="14" r="2"/>
+<path class="folder" d="M39 21h4.5l1.4 1.6h8.1v7.8h-14z"/>
+<path class="file" d="M63.5 41h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 41v3h3"/>
+<path class="folder" d="M39 65h4.5l1.4 1.6h8.1v7.8h-14z"/>
+<path class="folder" d="M61 87h4.5l1.4 1.6h8.1v7.8h-14z"/>
+<path class="file" d="M85.5 107h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 107v3h3"/>
+<path class="folder" d="M39 131h4.5l1.4 1.6h8.1v7.8h-14z"/>
+<path class="folder" d="M61 153h4.5l1.4 1.6h8.1v7.8h-14z"/>
+<path class="file" d="M85.5 173h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 173v3h3"/>
+<path class="file" d="M85.5 195h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 195v3h3"/>
+<path class="file" d="M85.5 217h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 217v3h3"/>
+<path class="file" d="M85.5 239h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 239v3h3"/>
+<path class="file" d="M85.5 261h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 261v3h3"/>
+<path class="file" d="M85.5 283h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 283v3h3"/>
+<path class="file" d="M85.5 305h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 305v3h3"/>
+<path class="file" d="M85.5 327h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 327v3h3"/>
+<path class="file" d="M85.5 349h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 349v3h3"/>
+<path class="folder" d="M61 373h4.5l1.4 1.6h8.1v7.8h-14z"/>
+<path class="file" d="M85.5 393h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 393v3h3"/>
+<path class="file" d="M85.5 415h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 415v3h3"/>
+<path class="file" d="M85.5 437h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 437v3h3"/>
+<path class="file" d="M85.5 459h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 459v3h3"/>
+<path class="file" d="M85.5 481h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 481v3h3"/>
+<path class="file" d="M85.5 503h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 503v3h3"/>
+<path class="file" d="M85.5 525h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 525v3h3"/>
+<path class="file" d="M85.5 547h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 547v3h3"/>
+<path class="file" d="M85.5 569h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 569v3h3"/>
+<path class="file" d="M85.5 591h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 591v3h3"/>
+<path class="file" d="M85.5 613h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 613v3h3"/>
+<path class="file" d="M85.5 635h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 635v3h3"/>
+<path class="file" d="M85.5 657h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 657v3h3"/>
+<path class="file" d="M85.5 679h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 679v3h3"/>
+<path class="file" d="M85.5 701h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 701v3h3"/>
+<path class="file" d="M85.5 723h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 723v3h3"/>
+<path class="file" d="M85.5 745h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 745v3h3"/>
+<path class="file" d="M85.5 767h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 767v3h3"/>
+<path class="file" d="M85.5 789h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 789v3h3"/>
+<path class="file" d="M85.5 811h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 811v3h3"/>
+<path class="file" d="M85.5 833h5l3 3v9h-8z"/><path class="file-fold" d="M90.5 833v3h3"/>
+<path class="file" d="M63.5 855h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 855v3h3"/>
+<path class="file" d="M63.5 877h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 877v3h3"/>
+<path class="file" d="M63.5 899h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 899v3h3"/>
+<path class="file" d="M63.5 921h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 921v3h3"/>
+<path class="file" d="M63.5 943h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 943v3h3"/>
+<path class="file" d="M63.5 965h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 965v3h3"/>
+<path class="folder" d="M39 989h4.5l1.4 1.6h8.1v7.8h-14z"/>
+<path class="file" d="M63.5 1009h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 1009v3h3"/>
+<path class="file" d="M63.5 1031h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 1031v3h3"/>
+<path class="file" d="M63.5 1053h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 1053v3h3"/>
+<path class="file" d="M63.5 1075h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 1075v3h3"/>
+<path class="file" d="M63.5 1097h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 1097v3h3"/>
+<path class="file" d="M63.5 1119h5l3 3v9h-8z"/><path class="file-fold" d="M68.5 1119v3h3"/>
+<path class="file" d="M41.5 1141h5l3 3v9h-8z"/><path class="file-fold" d="M46.5 1141v3h3"/>
+<path class="file" d="M41.5 1163h5l3 3v9h-8z"/><path class="file-fold" d="M46.5 1163v3h3"/>
+<path class="file" d="M41.5 1185h5l3 3v9h-8z"/><path class="file-fold" d="M46.5 1185v3h3"/>
+<path class="file" d="M41.5 1207h5l3 3v9h-8z"/><path class="file-fold" d="M46.5 1207v3h3"/>
+<path class="file" d="M41.5 1229h5l3 3v9h-8z"/><path class="file-fold" d="M46.5 1229v3h3"/>
+<path class="file" d="M41.5 1251h5l3 3v9h-8z"/><path class="file-fold" d="M46.5 1251v3h3"/>
+<path class="file" d="M41.5 1273h5l3 3v9h-8z"/><path class="file-fold" d="M46.5 1273v3h3"/>
+<text y="25.0" dominant-baseline="central" font-size="13"><tspan class="name-dir" x="62.0">.claude</tspan></text>
+<text y="47.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">settings.local.json</tspan></text>
+<text y="69.0" dominant-baseline="central" font-size="13"><tspan class="name-dir" x="62.0">.github</tspan></text>
+<text y="91.0" dominant-baseline="central" font-size="13"><tspan class="name-dir" x="84.0">workflows</tspan></text>
+<text y="113.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">ci.yml</tspan></text>
+<text y="135.0" dominant-baseline="central" font-size="13"><tspan class="name-dir" x="62.0">assets</tspan></text>
+<text y="157.0" dominant-baseline="central" font-size="13"><tspan class="name-dir" x="84.0">badges</tspan></text>
+<text y="179.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">docker.svg</tspan></text>
+<text y="201.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">node.svg</tspan></text>
+<text y="223.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">postgres.svg</tspan></text>
+<text y="245.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">react.svg</tspan></text>
+<text y="267.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">style-chip.svg</tspan></text>
+<text y="289.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">style-flat-square.svg</tspan></text>
+<text y="311.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">style-flat.svg</tspan></text>
+<text y="333.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">style-ftb.svg</tspan></text>
+<text y="355.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">style-plastic.svg</tspan></text>
+<text y="377.0" dominant-baseline="central" font-size="13"><tspan class="name-dir" x="84.0">logos</tspan></text>
+<text y="399.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">agile.svg</tspan></text>
+<text y="421.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">ai.svg</tspan></text>
+<text y="443.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">api.svg</tspan></text>
+<text y="465.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">docker.svg</tspan></text>
+<text y="487.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">git.svg</tspan></text>
+<text y="509.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">github.svg</tspan></text>
+<text y="531.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">html.svg</tspan></text>
+<text y="553.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">laravel.svg</tspan></text>
+<text y="575.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">linux.svg</tspan></text>
+<text y="597.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">mongodb.svg</tspan></text>
+<text y="619.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">mysql.svg</tspan></text>
+<text y="641.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">node.svg</tspan></text>
+<text y="663.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">npm.svg</tspan></text>
+<text y="685.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">php.svg</tspan></text>
+<text y="707.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">postgres.svg</tspan></text>
+<text y="729.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">python.svg</tspan></text>
+<text y="751.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">react.svg</tspan></text>
+<text y="773.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">tailwind.svg</tspan></text>
+<text y="795.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">team.svg</tspan></text>
+<text y="817.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">typescript.svg</tspan></text>
+<text y="839.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="106.0">vue.svg</tspan></text>
+<text y="861.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">changelog.css</tspan></text>
+<text y="883.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">changelog.js</tspan></text>
+<text y="905.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">palettes.css</tspan></text>
+<text y="927.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">sigilbadges.svg</tspan></text>
+<text y="949.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">site.css</tspan></text>
+<text y="971.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">site.js</tspan></text>
+<text y="993.0" dominant-baseline="central" font-size="13"><tspan class="name-dir" x="62.0">t</tspan></text>
+<text y="1015.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">00-syntax.t</tspan></text>
+<text y="1037.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">badge.t</tspan></text>
+<text y="1059.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">badge_row.t</tspan></text>
+<text y="1081.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">check_idempotency.t</tspan></text>
+<text y="1103.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">cwd_independence.t</tspan></text>
+<text y="1125.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="84.0">validation.t</tspan></text>
+<text y="1147.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="62.0">action.yml</tspan></text>
+<text y="1169.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="62.0">changelog.html</tspan></text>
+<text y="1191.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="62.0">changelog.md</tspan></text>
+<text y="1213.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="62.0">docs.html</tspan></text>
+<text y="1235.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="62.0">README.md</tspan></text>
+<text y="1257.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="62.0">resume.txt</tspan></text>
+<text y="1279.0" dominant-baseline="central" font-size="13"><tspan class="name-file" x="62.0">sigilbadges.pl</tspan></text>
+</svg>

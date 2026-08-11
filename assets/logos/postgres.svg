@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19">
+  <ellipse cx="9" cy="4" rx="8" ry="3" fill="#fff"/>
+  <rect x="1" y="4" width="16" height="12" fill="#fff"/>
+  <ellipse cx="9" cy="16" rx="8" ry="3" fill="#fff"/>
+  <text x="9" y="13" fill="#336791" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">P</text>
+</svg>
