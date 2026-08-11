@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/sigilbadges.svg" alt="sigilbadges" width="420"></p>
+
 # sigilbadges
 
 Generated SVG badges (logo + text) inserted into `README.md` via marker
@@ -5,6 +7,40 @@ comments, in the same spirit as `sigilmd` and `pdf-preview`: no template
 language, no CPAN dependencies, one Perl script. Badge generation needs no
 external binary at all — SVG is just text, so this is pure core Perl end to
 end.
+
+## Showcase
+
+<!--[[ badge: id=style-chip logo=react label="React" message="18.x" ]]-->
+<img src="assets/badges/style-chip.svg" alt="React 18.x">
+<!--/-->
+<!--[[ badge: id=style-flat label="build" message="passing" color=1f883d style=flat ]]-->
+<img src="assets/badges/style-flat.svg" alt="build passing">
+<!--/-->
+<!--[[ badge: id=style-flat-square label="coverage" message="92%" color=44CC11 style=flat-square ]]-->
+<img src="assets/badges/style-flat-square.svg" alt="coverage 92%">
+<!--/-->
+<!--[[ badge: id=style-plastic label="version" message="v2.0.4" color=007EC6 style=plastic ]]-->
+<img src="assets/badges/style-plastic.svg" alt="version v2.0.4">
+<!--/-->
+<!--[[ badge: id=style-ftb logo=docker label="docker" message="ready" style=for-the-badge ]]-->
+<img src="assets/badges/style-ftb.svg" alt="docker ready">
+<!--/-->
+
+A row, sharing one set of defaults:
+
+<!--[[ badge-row: style=chip
+logo=react message="18.x"
+logo=node message="20.x"
+logo=postgres message="16"
+logo=docker message="ready"
+]]-->
+<p align="center">
+<img src="assets/badges/react.svg" alt="18.x">
+<img src="assets/badges/node.svg" alt="20.x">
+<img src="assets/badges/postgres.svg" alt="16">
+<img src="assets/badges/docker.svg" alt="ready">
+</p>
+<!--/-->
 
 ## Usage
 
@@ -84,40 +120,6 @@ Colors are always a bare 6-digit hex value — no CSS color names (`blue`,
 `flat`, `flat-square`, and `plastic` only render as two colored segments
 when *both* `label` and `message` are given (shields.io's own convention);
 with just one of the two, it collapses to a single segment in `color`.
-
-## Showcase
-
-<!--[[ badge: id=style-chip logo=react label="React" message="18.x" ]]-->
-<img src="assets/badges/style-chip.svg" alt="React 18.x">
-<!--/-->
-<!--[[ badge: id=style-flat label="build" message="passing" color=1f883d style=flat ]]-->
-<img src="assets/badges/style-flat.svg" alt="build passing">
-<!--/-->
-<!--[[ badge: id=style-flat-square label="coverage" message="92%" color=44CC11 style=flat-square ]]-->
-<img src="assets/badges/style-flat-square.svg" alt="coverage 92%">
-<!--/-->
-<!--[[ badge: id=style-plastic label="version" message="v2.0.4" color=007EC6 style=plastic ]]-->
-<img src="assets/badges/style-plastic.svg" alt="version v2.0.4">
-<!--/-->
-<!--[[ badge: id=style-ftb logo=docker label="docker" message="ready" style=for-the-badge ]]-->
-<img src="assets/badges/style-ftb.svg" alt="docker ready">
-<!--/-->
-
-A row, sharing one set of defaults:
-
-<!--[[ badge-row: style=chip
-logo=react message="18.x"
-logo=node message="20.x"
-logo=postgres message="16"
-logo=docker message="ready"
-]]-->
-<p align="center">
-<img src="assets/badges/react.svg" alt="18.x">
-<img src="assets/badges/node.svg" alt="20.x">
-<img src="assets/badges/postgres.svg" alt="16">
-<img src="assets/badges/docker.svg" alt="ready">
-</p>
-<!--/-->
 
 ## Logos
 
