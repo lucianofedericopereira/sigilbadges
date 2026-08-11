@@ -1,5 +1,11 @@
 <p align="center"><img src="assets/sigilbadges.svg" alt="sigilbadges" width="420"></p>
 
+<p align="center">
+<!--[[ badge: id=read-the-docs logo=github message="Read the Docs" color=24292F style=for-the-badge link="https://lucianofedericopereira.github.io/sigilbadges/" ]]-->
+<a href="https://lucianofedericopereira.github.io/sigilbadges/"><img src="assets/badges/read-the-docs.svg" alt="Read the Docs"></a>
+<!--/-->
+</p>
+
 # sigilbadges
 
 Generated SVG badges (logo + text) inserted into `README.md` via marker
@@ -127,26 +133,26 @@ Available under `assets/logos/<name>.svg`, each with a default brand color:
 
 | logo         | brand color |
 | ------------ | ----------- |
-| <img src="assets/swatches/agile.svg" width="14" height="14" alt=""> `agile`      | `0052CC`    |
-| <img src="assets/swatches/ai.svg" width="14" height="14" alt=""> `ai`         | `EC4899`    |
-| <img src="assets/swatches/api.svg" width="14" height="14" alt=""> `api`        | `6366F1`    |
-| <img src="assets/swatches/docker.svg" width="14" height="14" alt=""> `docker`     | `2496ED`    |
-| <img src="assets/swatches/git.svg" width="14" height="14" alt=""> `git`        | `F05032`    |
-| <img src="assets/swatches/github.svg" width="14" height="14" alt=""> `github`     | `24292F`    |
-| <img src="assets/swatches/html.svg" width="14" height="14" alt=""> `html`       | `E34F26`    |
-| <img src="assets/swatches/laravel.svg" width="14" height="14" alt=""> `laravel`    | `FF2D20`    |
-| <img src="assets/swatches/linux.svg" width="14" height="14" alt=""> `linux`      | `3A3A3A`    |
-| <img src="assets/swatches/mongodb.svg" width="14" height="14" alt=""> `mongodb`    | `47A248`    |
-| <img src="assets/swatches/mysql.svg" width="14" height="14" alt=""> `mysql`      | `4479A1`    |
-| <img src="assets/swatches/node.svg" width="14" height="14" alt=""> `node`       | `5FA04E`    |
-| <img src="assets/swatches/npm.svg" width="14" height="14" alt=""> `npm`        | `CB3837`    |
-| <img src="assets/swatches/php.svg" width="14" height="14" alt=""> `php`        | `777BB4`    |
-| <img src="assets/swatches/postgres.svg" width="14" height="14" alt=""> `postgres`   | `336791`    |
-| <img src="assets/swatches/python.svg" width="14" height="14" alt=""> `python`     | `3776AB`    |
-| <img src="assets/swatches/react.svg" width="14" height="14" alt=""> `react`      | `20232A`    |
-| <img src="assets/swatches/tailwind.svg" width="14" height="14" alt=""> `tailwind`   | `06B6D4`    |
-| <img src="assets/swatches/team.svg" width="14" height="14" alt=""> `team`       | `7C3AED`    |
-| <img src="assets/swatches/typescript.svg" width="14" height="14" alt=""> `typescript` | `3178C6`    |
-| <img src="assets/swatches/vue.svg" width="14" height="14" alt=""> `vue`        | `42B883`    |
+| `agile`      | <img src="assets/swatches/agile.svg" width="14" height="14" alt=""> `0052CC`    |
+| `ai`         | <img src="assets/swatches/ai.svg" width="14" height="14" alt=""> `EC4899`    |
+| `api`        | <img src="assets/swatches/api.svg" width="14" height="14" alt=""> `6366F1`    |
+| `docker`     | <img src="assets/swatches/docker.svg" width="14" height="14" alt=""> `2496ED`    |
+| `git`        | <img src="assets/swatches/git.svg" width="14" height="14" alt=""> `F05032`    |
+| `github`     | <img src="assets/swatches/github.svg" width="14" height="14" alt=""> `24292F`    |
+| `html`       | <img src="assets/swatches/html.svg" width="14" height="14" alt=""> `E34F26`    |
+| `laravel`    | <img src="assets/swatches/laravel.svg" width="14" height="14" alt=""> `FF2D20`    |
+| `linux`      | <img src="assets/swatches/linux.svg" width="14" height="14" alt=""> `3A3A3A`    |
+| `mongodb`    | <img src="assets/swatches/mongodb.svg" width="14" height="14" alt=""> `47A248`    |
+| `mysql`      | <img src="assets/swatches/mysql.svg" width="14" height="14" alt=""> `4479A1`    |
+| `node`       | <img src="assets/swatches/node.svg" width="14" height="14" alt=""> `5FA04E`    |
+| `npm`        | <img src="assets/swatches/npm.svg" width="14" height="14" alt=""> `CB3837`    |
+| `php`        | <img src="assets/swatches/php.svg" width="14" height="14" alt=""> `777BB4`    |
+| `postgres`   | <img src="assets/swatches/postgres.svg" width="14" height="14" alt=""> `336791`    |
+| `python`     | <img src="assets/swatches/python.svg" width="14" height="14" alt=""> `3776AB`    |
+| `react`      | <img src="assets/swatches/react.svg" width="14" height="14" alt=""> `20232A`    |
+| `tailwind`   | <img src="assets/swatches/tailwind.svg" width="14" height="14" alt=""> `06B6D4`    |
+| `team`       | <img src="assets/swatches/team.svg" width="14" height="14" alt=""> `7C3AED`    |
+| `typescript` | <img src="assets/swatches/typescript.svg" width="14" height="14" alt=""> `3178C6`    |
+| `vue`        | <img src="assets/swatches/vue.svg" width="14" height="14" alt=""> `42B883`    |
 
 A badge with `logo=` and no `color=` uses this table automatically.

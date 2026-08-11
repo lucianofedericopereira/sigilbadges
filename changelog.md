@@ -12,4 +12,4 @@ Every release, as it ships. This page is generated automatically from changelog.
 - Added `action.yml`, a composite GitHub Action wrapping the script — no interpreter setup step, since GitHub-hosted runners ship Perl natively
 - Added a CI workflow that runs the test suite unmodified across a matrix of Perl versions, and a dogfooding job that checks this repo's own README against `--check`
 - Added a test suite (`prove -r t`) exercising the marker grammar, every style, color/key validation errors, duplicate-id detection, and idempotency of repeated runs
-- Added the project site (`docs.html`, this changelog) and a `sigilbadges.svg` wordmark as the project's logo
+- Added the project site (`index.html`, `docs.html`, this changelog) and a `sigilbadges.svg` wordmark as the project's logo

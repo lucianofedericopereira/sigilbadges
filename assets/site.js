@@ -226,9 +226,10 @@
     // server's implicit root). sigilbadges actually has three pages
     // (index.html, docs.html, changelog.html) — the fallback only ever
     // covers two of them (e.g. a docs.html visitor's local-miss falls back
-    // to changelog.html, not index.html), the same single-fallback
-    // limitation treegen2's own two-page site has, just not extended to
-    // a third page.
+    // to index.html, not changelog.html — moot in that direction since
+    // both are non-changelog.html and resolve the same OTHER_PAGE anyway),
+    // the same single-fallback limitation treegen2's own two-page site
+    // has, just not extended to a third page.
     const CURRENT_PAGE = location.pathname.split('/').pop() === 'changelog.html' ? 'changelog.html' : 'index.html';
     const OTHER_PAGE = CURRENT_PAGE === 'changelog.html' ? 'index.html' : 'changelog.html';
     const OTHER_PAGE_LABEL = OTHER_PAGE === 'changelog.html' ? 'Changelog' : 'Home';
