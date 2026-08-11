@@ -127,26 +127,26 @@ Available under `assets/logos/<name>.svg`, each with a default brand color:
 
 | logo         | brand color |
 | ------------ | ----------- |
-| `agile`      | `0052CC`    |
-| `ai`         | `EC4899`    |
-| `api`        | `6366F1`    |
-| `docker`     | `2496ED`    |
-| `git`        | `F05032`    |
-| `github`     | `24292F`    |
-| `html`       | `E34F26`    |
-| `laravel`    | `FF2D20`    |
-| `linux`      | `3A3A3A`    |
-| `mongodb`    | `47A248`    |
-| `mysql`      | `4479A1`    |
-| `node`       | `5FA04E`    |
-| `npm`        | `CB3837`    |
-| `php`        | `777BB4`    |
-| `postgres`   | `336791`    |
-| `python`     | `3776AB`    |
-| `react`      | `20232A`    |
-| `tailwind`   | `06B6D4`    |
-| `team`       | `7C3AED`    |
-| `typescript` | `3178C6`    |
-| `vue`        | `42B883`    |
+| <img src="assets/swatches/agile.svg" width="14" height="14" alt=""> `agile`      | `0052CC`    |
+| <img src="assets/swatches/ai.svg" width="14" height="14" alt=""> `ai`         | `EC4899`    |
+| <img src="assets/swatches/api.svg" width="14" height="14" alt=""> `api`        | `6366F1`    |
+| <img src="assets/swatches/docker.svg" width="14" height="14" alt=""> `docker`     | `2496ED`    |
+| <img src="assets/swatches/git.svg" width="14" height="14" alt=""> `git`        | `F05032`    |
+| <img src="assets/swatches/github.svg" width="14" height="14" alt=""> `github`     | `24292F`    |
+| <img src="assets/swatches/html.svg" width="14" height="14" alt=""> `html`       | `E34F26`    |
+| <img src="assets/swatches/laravel.svg" width="14" height="14" alt=""> `laravel`    | `FF2D20`    |
+| <img src="assets/swatches/linux.svg" width="14" height="14" alt=""> `linux`      | `3A3A3A`    |
+| <img src="assets/swatches/mongodb.svg" width="14" height="14" alt=""> `mongodb`    | `47A248`    |
+| <img src="assets/swatches/mysql.svg" width="14" height="14" alt=""> `mysql`      | `4479A1`    |
+| <img src="assets/swatches/node.svg" width="14" height="14" alt=""> `node`       | `5FA04E`    |
+| <img src="assets/swatches/npm.svg" width="14" height="14" alt=""> `npm`        | `CB3837`    |
+| <img src="assets/swatches/php.svg" width="14" height="14" alt=""> `php`        | `777BB4`    |
+| <img src="assets/swatches/postgres.svg" width="14" height="14" alt=""> `postgres`   | `336791`    |
+| <img src="assets/swatches/python.svg" width="14" height="14" alt=""> `python`     | `3776AB`    |
+| <img src="assets/swatches/react.svg" width="14" height="14" alt=""> `react`      | `20232A`    |
+| <img src="assets/swatches/tailwind.svg" width="14" height="14" alt=""> `tailwind`   | `06B6D4`    |
+| <img src="assets/swatches/team.svg" width="14" height="14" alt=""> `team`       | `7C3AED`    |
+| <img src="assets/swatches/typescript.svg" width="14" height="14" alt=""> `typescript` | `3178C6`    |
+| <img src="assets/swatches/vue.svg" width="14" height="14" alt=""> `vue`        | `42B883`    |
 
 A badge with `logo=` and no `color=` uses this table automatically.
