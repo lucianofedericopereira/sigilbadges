@@ -317,8 +317,8 @@
             // appendInlineMarkdown (changelog.js) turns into real nodes —
             // matched here only to strip the syntax markers back out
             // (`code`, **bold**, [text](url) -> code/bold/text), since a
-            // query like "opus" shouldn't have to also match a literal
-            // backtick to find `claude-opus-5`. Duplicated from that same
+            // query like "chip" shouldn't have to also match a literal
+            // backtick to find `style=chip`. Duplicated from that same
             // regex for the same reason as the rest of this branch: no
             // shared module to pull it from instead.
             const stripMarkdown = (raw) =>
