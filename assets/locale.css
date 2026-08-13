@@ -12,22 +12,18 @@
       otherwise-translated language. Never touches anything .notranslate. */
 
 /* ---------- Locale content ---------- */
-/* Ported from fui (/home/lucho/Downloads/html/fui/src/styles/core.css:
-   2143-2182) — :lang() rather than the [lang="es"] attribute selector,
-   since :lang() matches INHERITED and REGIONAL language tags (es-AR,
-   en-GB) where a plain attribute selector would silently match nothing;
-   :where() keeps specificity at zero so this never has to out-fight a
-   component-level override; display:revert (not block) so this works on
-   a <span>, <li>, <td> alike.
+/* :lang() rather than the [lang="es"] attribute selector, since :lang()
+   matches INHERITED and REGIONAL language tags (es-AR, en-GB) where a
+   plain attribute selector would silently match nothing; :where() keeps
+   specificity at zero so this never has to out-fight a component-level
+   override; display:revert (not block) so this works on a <span>, <li>,
+   <td> alike.
 
-   Extended beyond fui's version: fui assumes every string is authored in
-   every listed language. This project's rule additionally needs a single
-   missing translation, inside an otherwise-translated language, to fall
-   through to Google Translate — so the original English stays as a real,
-   visible, non-.notranslate node ([data-i18n-default], deliberately NOT
-   [data-locale]) whenever no override exists for the current language,
-   and only steps aside via :has() when a real override is actually
-   there to replace it. */
+   A single missing translation, inside an otherwise-translated language,
+   falls through to Google Translate — the original English stays as a
+   real, visible, non-.notranslate node ([data-i18n-default], deliberately
+   NOT [data-locale]) whenever no override exists for the current
+   language, and only steps aside via :has() when a real override exists. */
 [data-locale] { display: none; }
 
 :where(:lang(es)) [data-locale='es'],
@@ -128,8 +124,7 @@
 /* ---------- Google Translate ---------- */
 /* Loading/driving logic lives in locale.js; this is only the static
    resource hints (cheap even if translate is never engaged) and the
-   chrome-hiding rules, ported near-verbatim from future-features.md:
-   23-104 (codecraft's real, working integration). */
+   chrome-hiding rules. */
 #translate { display: none; }
 
 [class^="VI"],

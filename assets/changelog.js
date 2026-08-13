@@ -1,13 +1,8 @@
-// changelog.js — changelog.html only. Ported from the standalone changelog
-// project's app.js: fetches changelog.md, parses a small markdown subset,
-// renders the article + TOC, drives the active-version highlight with a
-// plain scroll listener (kept as-is — CSS scroll-timelines were tried
-// there first and dropped for browser-support reasons, per that project's
-// own README). Parse/render logic is intentionally close to the original;
-// the one dropped piece is setupFixedSidebar's manual resize-driven
-// left/width positioning for the TOC — replaced by plain CSS
-// `position: sticky` (changelog.css), which doesn't need JS to stay in
-// its grid column while tracking scroll the way `position: fixed` did.
+// changelog.js — changelog.html only. Fetches changelog.md, parses a small
+// markdown subset, renders the article + TOC, and drives the active-version
+// highlight with a plain scroll listener (CSS scroll-timelines aren't used,
+// for browser-support reasons). The TOC stays in its grid column while
+// tracking scroll via plain CSS `position: sticky` (changelog.css).
 //
 // No innerHTML anywhere in this file, on purpose: every node is built with
 // createElement/textContent, so changelog.md content can never be
@@ -176,10 +171,9 @@ function render({ title, dek, sections }) {
     section.appendChild(ul);
     articleSections.appendChild(section);
 
-    // No separate .pill highlight node (the original's absolutely-positioned
-    // background trick, needed because its TOC used position:fixed) — the
-    // sticky-positioned TOC here backgrounds the <a> itself directly
-    // (changelog.css .changelog-toc-list li.active a), one less DOM node.
+    // The sticky-positioned TOC backgrounds the active <a> itself directly
+    // (changelog.css .changelog-toc-list li.active a), no separate
+    // highlight node needed.
     const tocLi = document.createElement('li');
     const a = document.createElement('a');
     a.href = `#${s.id}`;

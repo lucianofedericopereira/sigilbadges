@@ -1,21 +1,15 @@
 /* changelog.css — changelog.html only, loaded alongside site.css (shared
-   nav/search/back-to-top/footer chrome) + palettes.css. Ported from the
-   standalone changelog project (../changelog/style.css): same structure
-   (article + vertical rule + sticky TOC sidebar, scroll-spy active state,
-   auto-tagged entry list, dedicated print block), retokenized against
-   treegen2's own existing design tokens (accent colors, background and
-   border colors, spacing, radius, duration and easing) instead of the
-   original's own paper/ink raw-oklch palette. No Google Fonts — treegen2's
-   system sans stack only, consistent with the zero-external-dependency
-   posture of the rest of this site.
+   nav/search/back-to-top/footer chrome) + palettes.css. Structure: article +
+   vertical rule + sticky TOC sidebar, scroll-spy active state, auto-tagged
+   entry list, dedicated print block — built entirely on this site's own
+   design tokens (accent colors, background/border colors, spacing, radius,
+   duration, easing). No Google Fonts — system sans stack only, consistent
+   with the zero-external-dependency posture of the rest of this site.
 
-   Two structural changes from the original: the TOC sidebar there was
-   `position: fixed`, manually re-positioned on every resize via
-   getBoundingClientRect() (setupFixedSidebar in the original app.js) because
-   fixed positioning takes an element out of its grid track entirely. Plain
-   `position: sticky` does not have that problem — it stays inside its own
-   grid column while tracking scroll — so the JS hack is dropped and this is
-   pure CSS. And the vertical rule between the columns is a border-right on
+   The TOC sidebar uses plain `position: sticky` (not `fixed`, which would
+   take it out of its grid track and need JS to reposition it on resize) —
+   sticky stays inside its own grid column while tracking scroll, so this
+   is pure CSS. The vertical rule between the columns is a border-right on
    aside rather than a separate stretched grid item — see the TOC sidebar
    section below for why. */
 

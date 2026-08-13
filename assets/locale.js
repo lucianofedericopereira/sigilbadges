@@ -1,13 +1,9 @@
 // locale.js — index.html + changelog.html both. Plain script (no
-// type="module"), matching site.js's house style exactly: one outer IIFE,
-// named inner IIFEs per concern. Deliberately not a module — this never
-// needs anything from changelog.js's exports, it only manipulates the
-// rendered DOM the same way Google Translate itself does. site.js is left
-// completely untouched; createToggle (site.js:36-48) is closure-scoped
-// inside site.js's own IIFE and unreachable from a second <script src>
-// tag, so this file carries its own small duplicate below rather than
-// modifying site.js to expose it — the same tradeoff site.js's own
-// comment (~266-301) already accepted once for changelog.js's parser.
+// type="module"): this never needs anything from changelog.js's exports, it
+// only manipulates the rendered DOM the same way Google Translate itself
+// does. site.js's createToggle is closure-scoped inside its own IIFE and
+// unreachable from a second <script src> tag, so this file carries its own
+// small duplicate below rather than exposing it from site.js.
 
 (() => {
   'use strict';
@@ -53,10 +49,10 @@
     { code: 'zh-CN', endonym: '中文', flag: 'flag-cn', static: false },
   ];
 
-  // Small local duplicate of site.js:36-48's createToggle — same shape
-  // (flip aria-expanded on the trigger, aria-hidden on the target, an
-  // optional callback for extra per-caller behavior), just not shared
-  // since it can't be imported (see file header).
+  // Small local duplicate of site.js's createToggle — same shape (flip
+  // aria-expanded on the trigger, aria-hidden on the target, an optional
+  // callback for extra per-caller behavior), just not shared since it
+  // can't be imported (see file header).
   function localToggle(toggleEl, targetEl, onToggle) {
     if (!toggleEl || !targetEl) return null;
     let open = false;
@@ -90,22 +86,15 @@
 
     // scrollWidth is deliberately not used to detect this: for an
     // overflow:visible element (.nav .wrap never sets overflow),
-    // scrollWidth is NOT reliable for content that visually overflows
-    // past it — in practice it just echoes clientWidth back, so a
-    // scrollWidth-vs-width comparison silently never fires. Confirmed
-    // live: an earlier scrollWidth-based version of this check never
-    // triggered at all in a real browser despite passing in headless
-    // tests. Comparing the actual rendered position of the last toolbar
-    // item against the nav's own right edge is what actually reflects
-    // overflow, regardless of how a given browser reports scrollWidth on
-    // a non-scrolling container.
+    // scrollWidth just echoes clientWidth back rather than reflecting
+    // content that visually overflows past it. Comparing the actual
+    // rendered position of the last toolbar item against the nav's own
+    // right edge is what actually reflects overflow.
     // 24px margin, not 1px: right at the edge, .nav .links' own
-    // pre-existing overflow-x:auto (site.css) can still make a "fits"
-    // reading technically true while actually relying on that scroll to
-    // hide the last link or two — exactly the "broken middle ground"
-    // between full-row and hamburger the very first breakpoint comment
-    // in site.css was written to avoid. A real margin means "fits" only
-    // when there's genuine room, not just zero pixels of it.
+    // pre-existing overflow-x:auto (site.css) can make a "fits" reading
+    // technically true while actually relying on that scroll to hide the
+    // last link or two. A real margin means "fits" only when there's
+    // genuine room, not just zero pixels of it.
     function fits() {
       const navRight = nav.getBoundingClientRect().right;
       const tailRect = tail.getBoundingClientRect();
@@ -232,10 +221,9 @@
     });
 
     // 'l' opens the language menu — same guarded-shortcut pattern as
-    // site.js's 's' for search (site.js:484-495): plain key only (no
-    // modifiers, so it doesn't fight Cmd/Ctrl+L for the address bar),
-    // skipped while typing in a field or while any <dialog> (the search
-    // modal) is open.
+    // site.js's 's' for search: plain key only (no modifiers, so it
+    // doesn't fight Cmd/Ctrl+L for the address bar), skipped while typing
+    // in a field or while any <dialog> (the search modal) is open.
     document.addEventListener('keydown', (e) => {
       if (e.key.toLowerCase() !== 'l' || e.metaKey || e.ctrlKey || e.altKey) return;
       const active = document.activeElement;
@@ -294,11 +282,9 @@
   /* ---------- Google Translate ---------- */
   // Lazy — the actual google.translate.TranslateElement init + script tag
   // load only happens on first non-English selection, so a visitor who
-  // never switches language never pays for it. Ported from
-  // future-features.md:23-104 (codecraft's real, working integration):
-  // custom UI (#locale-menu) drives Google's real hidden
-  // <select class="goog-te-combo"> programmatically instead of showing
-  // any of Google's own widget chrome.
+  // never switches language never pays for it. Custom UI (#locale-menu)
+  // drives Google's real hidden <select class="goog-te-combo">
+  // programmatically instead of showing any of Google's own widget chrome.
   let googleReadyPromise = null;
   let googleEngaged = false;
 
@@ -326,24 +312,20 @@
             pageLanguage: 'en',
             includedLanguages,
             autoDisplay: false,
-            // VERTICAL, not SIMPLE — confirmed live against Google's actual
-            // service: SIMPLE renders a click-to-open popup with no
-            // <select> in the main document at all (the language list
-            // lives in a separate, same-origin-inaccessible surface), so
-            // .goog-te-combo never appears and the drive-it-programmatically
-            // approach below silently does nothing. VERTICAL is what
-            // future-features.md's reference integration uses, and it's
-            // the one that actually exposes .goog-te-combo.
+            // VERTICAL, not SIMPLE: SIMPLE renders a click-to-open popup
+            // with no <select> in the main document at all (the language
+            // list lives in a separate, same-origin-inaccessible surface),
+            // so .goog-te-combo never appears and driving it
+            // programmatically below silently does nothing.
             layout: google.translate.TranslateElement.InlineLayout.VERTICAL,
           },
           'translate'
         );
         // Resolve once the combo Google generates actually HAS its option
         // list populated — the <select> itself appears before Google has
-        // filled in its <option>s (confirmed live: an empty options array
-        // for a beat after the element exists), and setting .value against
-        // an option that doesn't exist yet is the same silent no-op as a
-        // wrong value string.
+        // filled in its <option>s, and setting .value against an option
+        // that doesn't exist yet is the same silent no-op as a wrong value
+        // string.
         const check = setInterval(() => {
           const combo = document.querySelector('.goog-te-combo');
           if (combo && combo.options.length > 0) {
@@ -358,13 +340,11 @@
     return googleReadyPromise;
   }
 
-  // Google rewrites the page's text nodes progressively, not in one shot
-  // — confirmed live with a MutationObserver during a real switch: 3
-  // separate mutation bursts on .nav alone, spread across ~900ms, each
-  // ~400-460ms apart. With nothing hiding it, the nav sits in the
-  // pre-switch language and then visibly snaps word-by-word as each
-  // burst lands. There's no "translation complete" event Google's widget
-  // exposes, so "settled" is inferred: hide the nav, watch for mutations
+  // Google rewrites the page's text nodes progressively, in several
+  // mutation bursts, not in one shot — with nothing hiding it, the nav
+  // sits in the pre-switch language and then visibly snaps word-by-word as
+  // each burst lands. There's no "translation complete" event Google's
+  // widget exposes, so "settled" is inferred: hide the nav, watch for mutations
   // to stop for a real quiet stretch (600ms — a margin above the ~460ms
   // gaps actually observed between bursts, so it doesn't reveal itself in
   // the gap between two waves), then reveal it and re-measure overflow
@@ -428,17 +408,14 @@
   function resetGoogleTranslateIfEngaged() {
     if (!googleEngaged) return;
     clearTimeout(switchDebounceTimer);
-    // combo.value = '' (tried first) does nothing useful: '' is just
-    // Google's own unselected placeholder option ("Select language"), not
-    // an "undo" — once Google has rewritten the DOM there is no supported
-    // in-place revert available from outside its own visible banner
-    // (which is deliberately hidden here in favor of our own UI). The
-    // googtrans cookie is what Google's script reads on load to decide
-    // whether to translate at all, so clearing it and reloading is what
-    // actually gets back to the real original English — confirmed live
-    // this was the fix; the previous combo.value='' approach left
-    // already-translated text on the page with no way back short of a
-    // manual browser refresh.
+    // combo.value = '' does nothing useful: '' is just Google's own
+    // unselected placeholder option ("Select language"), not an "undo" —
+    // once Google has rewritten the DOM there is no supported in-place
+    // revert available from outside its own visible banner (deliberately
+    // hidden here in favor of our own UI). The googtrans cookie is what
+    // Google's script reads on load to decide whether to translate at all,
+    // so clearing it and reloading is what actually gets back to the real
+    // original English.
     document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${location.hostname};`;
     googleEngaged = false;

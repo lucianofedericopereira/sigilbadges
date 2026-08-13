@@ -1,19 +1,6 @@
-/* Forest palette — warm cream + forest green + orange (page only). */
+/* Graphite palette — hex only, no oklch companion line (this file's own
+   color-mix() calls all run `in srgb`). */
   :root {
-    /* Every color declared twice: hex, then OKLCH, same property name.
-       A browser that doesn't understand oklch() treats it as an invalid
-       declaration and keeps the hex line before it — CSS cascade rule, not
-       a hack, so this needs no @supports query. One that does understand it
-       uses the OKLCH line, which is perceptually uniform (this matters once
-       --band/--shadow start color-mix()ing these — a mix in oklch keeps
-       equal-looking steps equal, the way a mix in raw srgb hex does not).
-       Values computed from the hex above via the actual sRGB->OKLab->OKLCH
-       matrices (Björn Ottosson's / CSS Color 4's), not eyeballed. */
-    /* Graphite palette — hex only (no oklch companion line): every
-       color-mix() in this file below already runs `in srgb`, so an oklch
-       fallback line would sit unused rather than actually change how
-       --band/tag colors blend — see palette comment in the header above
-       for the original two-line convention this departs from. */
     --bg: #ffffff;
     --bg-subtle: #f6f8fa;
     --bg-inset: #eaeef2;
@@ -29,19 +16,12 @@
     --shadow: 0 1px 3px rgba(31, 35, 40, 0.12), 0 8px 24px rgba(31, 35, 40, 0.08);
 
     /* ---------- Spacing ----------
-       treegen2's own audit (future-features.md): padding/margin/gap was
-       100% raw px literals, 24 distinct values, zero shared tokens — the
-       one token family duration/easing already got and spacing hadn't.
-       Named for the exact px value they hold, since this file's spacing
-       isn't on a clean power-of-2 grid (10px/14px/18px/22px are real,
-       repeated, deliberate values here, not typos for 8/16/20/24) — a
-       token that renamed them to the nearest Tailwind-style step would
-       quietly shift dozens of hand-tuned layouts by a px or two. Only the
-       values that actually repeat across unrelated components are tokens;
-       one-off numbers (and anything a nearby comment already documents as
-       derived FROM another specific value, e.g. the hamburger bar's
-       translateY) are left as literals on purpose — turning those into a
-       generic token would sever the documented relationship. */
+       Named for their own px value, not a Tailwind-style nearest-step —
+       10px/14px/18px/22px etc. are real, repeated, deliberate values here,
+       and renaming to the nearest power-of-2 would quietly shift hand-tuned
+       layouts. Only values that repeat across components are tokenized;
+       one-offs (and anything derived FROM another specific value, e.g. the
+       hamburger bar's translateY) stay literal on purpose. */
     --space-2: 2px;
     --space-4: 4px;
     --space-6: 6px;
@@ -53,13 +33,9 @@
     --space-18: 18px;
     --space-20: 20px;
     --space-22: 22px;
-    /* Two fluid tokens, luxury-style, reserved for the couple of large
-       values where cross-device scaling is actually visible — section and
-       hero vertical rhythm. Same two-point-anchored clamp() already used
-       for h1/.tagline/h2 below (400px small-phone -> 1280px desktop), and
-       floor-pinned at exactly today's flat value, so this can only ever
-       add extra breathing room on a bigger screen, never shrink anything
-       that fit before. */
+    /* Fluid clamp(), reserved for the two values where cross-device scaling
+       is actually visible (section/hero rhythm) — floor-pinned at today's
+       flat value, so this only ever adds room on a bigger screen. */
     --space-fluid-section: clamp(56px, 48.7px + 1.82vw, 72px); /* was flat 56px */
     --space-fluid-hero-top: clamp(76px, 66.9px + 2.27vw, 96px); /* was flat 76px */
     /* Sharp deceleration ("snap to rest") instead of plain ease/ease-in-out
@@ -69,19 +45,13 @@
        .nav .brand .logo) on their own cubic-bezier(.34,1.56,.64,1), a
        different, distinctly playful curve this isn't meant to replace. */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    /* Symmetric in+out (luxury's --ease-image value — their "smooth hover
-       both ways" curve) instead of the plain ease-in-out keyword — for
-       cases like the hero fade-in where --ease-out-expo's front-loaded
-       deceleration is wrong (it visually "finishes" within a fraction of
-       a long duration, since nearly all the perceptible change happens
-       right at the start). This spreads it evenly across the whole
-       declared duration instead. */
+    /* Symmetric in+out — for cases like the hero fade-in where
+       --ease-out-expo's front-loaded deceleration is wrong (it visually
+       "finishes" early since nearly all the change happens at the start).
+       This spreads it evenly across the whole duration instead. */
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    /* Named duration scale (harvested from luxury's --duration-* tokens,
-       resized to this file's actual spread of values) instead of raw
-       numbers scattered through every transition/animation declaration —
-       every value below is unchanged from what was already tuned in,
-       this only names them. */
+    /* Named duration scale instead of raw numbers scattered through every
+       transition/animation declaration. */
     --duration-instant: .1s;
     --duration-micro: .15s;
     --duration-fast: .2s;
@@ -246,22 +216,11 @@
      bleeds its padded ring-box past this scroll container's own left/right
      edge — with overflow-x:auto you can't scroll into that negative space,
      so it just gets clipped. This padding gives both edges room to absorb it. */
-  /* border here (transparent, box-sizing:border-box so it costs no layout
-     space) exists purely so .nav.is-compact .links below has a defined
-     "transparent" border-color to transition FROM. Without it, the very
-     first time JS adds .is-compact (synchronously, on load, before any
-     user interaction) border-width/style snap to 1px solid instantly
-     (they're outside the transition list) while border-color eases from
-     its previous, undefined value — which resolves to currentcolor, a
-     real visible color — down to transparent over --duration-fast. That
-     briefly-visible line under the nav, fading in then out on first
-     paint, was the reported "black line on the burger menu top on load"
-     with nl (or any Google-Translate-only language) as the stored
-     locale: is-compact triggers synchronously before the page has even
-     finished loading, right into this transition gap. Confirmed live via
-     computed styles (real border-bottom-color at 0.3s, transparent by
-     1s). Same color at rest in both states now, so toggling .is-compact
-     never has a border-color change to animate in the first place. */
+  /* Transparent border reserved here so .nav.is-compact .links below has a
+     defined color to transition FROM — without it, border-color's initial
+     value resolves to currentcolor (a real, visible color) and eases down
+     to transparent on the first .is-compact toggle, flashing a stray line
+     under the nav. */
   .nav .links { display: flex; align-items: center; gap: 1.125rem; overflow-x: auto; scrollbar-width: none; padding-inline: var(--space-8); border: 1px solid transparent; }
   .nav .links::-webkit-scrollbar { display: none; }
   .nav .spacer { flex: 1; }
@@ -300,10 +259,8 @@
      just adds the visual "you're leaving this page" signal an href alone
      doesn't give the reader. */
   .nav a.link.link--external { display: inline-flex; align-items: center; gap: 3px; }
-  /* Real SVG (icon-external symbol) instead of the Unicode "↗" character —
-     same reasoning as the tree logo: a raw character's weight/angle/
-     proportions vary by whatever font renders it, an SVG is identical
-     everywhere and matches .ic-svg's hand-drawn stroke language. */
+  /* Real SVG instead of the Unicode "↗" character, whose weight/angle/
+     proportions vary by whatever font renders it. */
   .link-external-icon {
     width: 0.85em; height: 0.85em; flex: none;
     fill: none; stroke: var(--accent); stroke-width: 2.2;
@@ -408,42 +365,13 @@
   .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-0.3125rem) rotate(-45deg); }
 
-  /* Raised from 820px, then 1100px, then 1360px: at in-between desktop
-     widths just above the old breakpoint, the full link row didn't fit but
-     wasn't narrow enough to switch to the hamburger either — it fell back
-     to .nav .links' overflow-x:auto scroll, which has no visible scrollbar
-     (by design, matching .carousel's hidden-scrollbar drag UX) and doesn't
-     reliably respond to a vertical mouse wheel, silently stranding the
-     later links. A safely-high breakpoint means every width either shows
-     the full row with real room to spare, or the always-reachable
-     hamburger — never the broken middle ground.
-
-     Raised again, to 1850px, once the locale switcher (assets/locale.css)
-     added translated nav link text: Spanish/Italian labels run
-     noticeably longer than their English originals ("Use cases" ->
-     "Casos de uso", "Changelog" -> "Registro de cambios"), and — unlike
-     the earlier raises — this isn't a fixed amount of extra width from one
-     more button; .nav .wrap's own max-width (1360px) caps its box, but
-     doesn't clip overflowing flex children, so whether the overflow is
-     actually visible depends on how much viewport width surrounds the
-     centered wrap, not on that 1360px figure. 1850px was measured live as
-     the point both es and it fit with real room to spare.
-
-     Superseded: assets/locale.js's checkNavOverflow now does exactly the
-     JS-driven measurement described above and is the real mechanism in
-     the 1101-1850px range this comment used to worry about — it toggles
-     .nav.is-compact based on actual rendered overflow, independent of
-     viewport width or which language is responsible. This @media block
-     stays only as a no-JS baseline, which is why its own threshold was
-     dropped way down below the JS-governed range (see next comment) —
-     otherwise it and the JS mechanism actively fought each other: at any
-     width where the JS check found no real overflow (so left .is-compact
-     off), this query would still force the hamburger on and hide the
-     .links row on its own, while @media (min-width:1101px) above kept
-     .spacer hidden too (that rule only gets undone by .nav.is-compact,
-     which JS hadn't set) — hamburger visible, nothing pushing it right,
-     the same broken layout as the bug this was meant to fix. Confirmed
-     live at 1500px. */
+  /* This breakpoint is a no-JS fallback only — assets/locale.js's
+     checkNavOverflow does the real, JS-driven measurement (toggles
+     .nav.is-compact once the link row actually overflows, regardless of
+     viewport width or translated text length) and takes over above 700px.
+     Kept low so the two never fight: if this query fired anywhere the JS
+     check found no real overflow, .nav .links would be forced hidden with
+     nothing left to un-hide .spacer (that only happens via .is-compact). */
   @media (max-width: 700px) {
     .nav-toggle { display: inline-flex; width: 1.5rem; height: 1.5rem; gap: 0.15rem; }
     .nav-toggle:hover { gap: 0.25rem; }
@@ -536,17 +464,12 @@
   .nav.is-compact .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(0.24375rem) rotate(45deg); }
   .nav.is-compact .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-0.24375rem) rotate(-45deg); }
   .nav.is-compact .wrap { position: relative; }
-  /* Undoes @media (min-width: 1101px) above (site.css:315-318): that rule
-     hides .spacer and has .links self-center via margin:auto instead,
-     because on a true desktop layout .links (visible, inline) already
-     does the "push everything after it rightward" job by centering
-     itself in the leftover space. Once .is-compact makes .links
-     position:absolute (below), it's removed from flow and can't do that
-     job any more — but that min-width query is still separately active
-     at any width >=1101px, is-compact or not, and would otherwise leave
-     .spacer hidden with nothing left to push search/switcher/hamburger
-     off the brand. Confirmed live: without this, those three icons sat
-     immediately after "treegen2" with the entire rest of the bar empty. */
+  /* Undoes the min-width:1101px rule above that hides .spacer: that rule
+     assumes .links (visible, inline) does the "push everything rightward"
+     job itself by self-centering — once .is-compact makes .links
+     position:absolute, it's out of flow and can't do that job any more, so
+     .spacer needs to come back to push search/switcher/hamburger off the
+     brand. */
   .nav.is-compact .spacer { display: block; }
   .nav.is-compact .links {
     position: absolute; top: 100%; left: 0; right: 0; z-index: 60;
@@ -555,10 +478,9 @@
     overflow: hidden;
     max-height: 0;
     background: var(--bg);
-    /* transparent at rest, same reasoning as the @media version above:
-       border isn't constrained by max-height:0, so a real color here
-       rendered as a thin flat line under the whole nav even while
-       "closed". Confirmed live — this is what you were seeing. */
+    /* transparent at rest — border isn't constrained by max-height:0, so a
+       real color here renders as a thin flat line under the nav even while
+       "closed". */
     border: 1px solid transparent; border-top: none;
     border-radius: 0 0 var(--radius) var(--radius);
     transition: max-height var(--duration-moderate) var(--ease-out-expo),
@@ -570,9 +492,8 @@
     padding: 0.625rem 0.875rem; margin: 0; border-radius: 0;
     border-top: 1px solid var(--border);
   }
-  /* Same fix as the @media version above: the first row's border-top is a
-     stray line under the nav bar, not a real divider. Confirmed live —
-     this is the "top border on desktop hamburger" that kept coming back. */
+  /* First row's border-top is a stray line under the nav bar, not a real
+     divider between rows. */
   .nav.is-compact .links > a.link:first-child { border-top: none; }
   .nav.is-compact .links-external {
     display: flex; flex-direction: column; align-items: stretch; gap: 0;
@@ -604,19 +525,12 @@
     background: var(--bg); color: var(--muted);
     font-family: var(--mono); font-size: 0.6875rem; line-height: 16px; text-align: center;
   }
-  /* Collapses to icon-only — but only as the LAST resort, after the nav
-     links have already been tried as a hamburger dropdown and the row
-     still doesn't fit. Driven by assets/locale.js's checkNavOverflow,
-     which measures in stages (full desktop -> links collapsed -> also
-     collapse search) rather than this and the hamburger breakpoint each
-     independently guessing a viewport width where "surely" the other
-     has already kicked in — the previous version collapsed search
-     whenever the viewport alone was <=900px, whether or not that had
-     anything to do with search actually running out of room, and
-     independently of whether collapsing the links had already solved
-     the problem. .search-compact is added to .nav, same as .is-compact.
-     The @media version stays only as a no-JS baseline, same reasoning
-     and same threshold as the hamburger's — see site.css:391-onward. */
+  /* Collapses to icon-only only as a LAST resort, after the nav links have
+     already collapsed to a hamburger and the row still doesn't fit — driven
+     by assets/locale.js's checkNavOverflow, which measures in stages
+     (full desktop -> links collapsed -> also collapse search) rather than
+     guessing a fixed viewport width. .search-compact is added to .nav, same
+     as .is-compact; the @media version below is only a no-JS baseline. */
   .nav.search-compact .search-trigger-label,
   .nav.search-compact .search-kbd { display: none; }
   .nav.search-compact .search-trigger { width: 2rem; padding: 0; justify-content: center; }
@@ -627,10 +541,9 @@
 
   /* Native <dialog>: showModal() gives Escape-to-close and focus trapping
      for free, plus a real top-layer/::backdrop with none of .nav's stacking
-     context to fight. overflow:hidden clips the results list to the
-     dialog's own rounded corners; unlike a shared modal base this one never
-     needs to escape its own bounds (no nested popovers inside it), so
-     there's no need for gitcss2's overflow:visible + :has(:empty) trick. */
+     context to fight. overflow:hidden safely clips the results list to the
+     dialog's own rounded corners since nothing here needs to escape those
+     bounds (no nested popovers inside it). */
   .search-modal {
     width: min(480px, 92vw); margin: auto; padding: 0; overflow: hidden;
     border: 1px solid var(--border); border-radius: var(--radius);
@@ -753,9 +666,8 @@
   .logo-tree { width: 0.72em; height: 1.03em; fill: color-mix(in srgb, var(--accent) 60%, white); display: inline-block; vertical-align: -0.18em; }
   .logo-tree--sm { width: 0.85em; height: 1.21em; vertical-align: -0.2em; }
   /* sigilbadges.svg carries its own light/dark fill via an embedded
-     prefers-color-scheme media query (see the file itself), so unlike
-     .logo-tree above this needs no color-mix/currentColor wiring here —
-     just sizing to sit on the nav/footer text baseline. */
+     prefers-color-scheme media query, so this needs no color-mix/currentColor
+     wiring — just sizing to sit on the nav/footer text baseline. */
   .brand-logo { height: 1.3em; width: auto; display: inline-block; vertical-align: -0.32em; }
   .brand-logo--sm { height: 1.05em; vertical-align: -0.24em; }
   /* Two-point fluid scale: same min/max as before, but anchored at explicit
@@ -852,20 +764,16 @@
     text-transform: uppercase; color: var(--accent-2); font-weight: 700; margin-bottom: var(--space-8);
   }
 
-  /* ---------- Comparison table, with the "treegen2" column highlighted ---------- */
+  /* ---------- Comparison table, with one column highlighted ---------- */
   /* min-width (not a bare fixed width) so on narrow screens the table keeps
      readable column proportions and scrolls horizontally inside
      .table-scroll, instead of table-layout:fixed squeezing the first
      column's text down to near-nothing. */
   .compare-table { table-layout: fixed; min-width: 480px; }
   .compare-table th:first-child, .compare-table td:first-child { width: auto; }
-  /* 130px used to be exact: "Manually" fit with room to spare, but its
-     Spanish/Italian translation "Manualmente" needs 102.84px of the
-     102px this left after padding — over by less than a pixel, so the
-     global overflow-wrap:break-word safety net (body, site.css ~147)
-     found nothing else to do but split the word mid-token
-     ("Manualment"/"e"), confirmed live via getBoundingClientRect. 150px
-     gives real headroom, not just enough for this one word. */
+  /* Wide enough for the longest translated cell text (e.g. Spanish
+     "Manualmente"), not just the English original — real headroom rather
+     than a width tuned to the exact pixel of one language. */
   .compare-table th:not(:first-child), .compare-table td:not(:first-child) { width: 150px; text-align: center; }
   .compare-table .compare-no, .compare-table .compare-yes { font-weight: 700; font-size: 1rem; }
   .compare-table .compare-no { color: var(--muted); }

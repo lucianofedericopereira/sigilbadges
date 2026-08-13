@@ -1,45 +1,26 @@
-/* Named palettes — ported from fui's base16 architecture (Downloads/html/fui,
- * src/styles/palettes/*.css), adapted to THIS file's own token names instead
- * of introducing base16's --base00.."0f" slots as a second naming scheme.
+/* Named palettes, selectable via [data-palette="name"] on <html> instead of
+ * the OS prefers-color-scheme setting — site.css's own :root is already one
+ * such palette (light + dark), these are more of the same. Attribute
+ * selectors out-specificity a bare `:root` inside @media(prefers-color-scheme),
+ * so a palette here always wins over the OS default regardless of load order.
  *
- * site.css's :root already IS a palette (Forest, light + a
- * prefers-color-scheme dark variant) — these are more of the same, picked
- * with `[data-palette="name"]` on <html> instead of the OS setting. No JS
- * ships with this file: treegen2's own page is meant to be reused as a
- * template for other of the user's projects (see handoff.md), so setting
- * the attribute by hand when starting a new project fits better than a
- * live picker widget aimed at this page's own visitors.
- *
- * Attribute selectors out-specificity a bare `:root` inside
- * @media(prefers-color-scheme), so a palette here always wins over the OS
- * default regardless of load order — same reasoning fui and gitcss both
- * already rely on for the same trick.
- *
- * Mapping, one scheme for all eleven palettes below: each source is a
- * published base16 scheme (16 hex slots, no exceptions), and every palette
- * here reads the same eight slots for the same role —
+ * Each source is a published base16 scheme (16 hex slots); every palette
+ * below reads the same eight slots for the same role:
  *
  *   --bg base00   --bg-subtle base01   --bg-inset base02   --border base03
  *   --tree base03 (shares --border's slot — both are faint structural
  *                  lines, never a fill sitting against its own border)
  *   --muted base04   --fg base05   --gold base0A   --accent-2 base09
- *   --accent base0D  --on-accent base00 (verified in fui/theme.css: base00
- *                  reads on every accent hue used here across all eleven
- *                  palettes — the one hue where that verification does NOT
- *                  hold is base0A/yellow, and nothing below maps accent or
- *                  accent-2 to base0A)
+ *   --accent base0D  --on-accent base00
  *
  * --shadow is not hand-tuned per palette — every dark palette reuses this
  * file's own dark --shadow value, every light one reuses its own light
- * value (see site.css's Forest dark block for both originals). --band
- * needs no override at all: it's `color-mix(--accent, --bg)` already, so
- * it recomputes from whichever of those a palette sets.
+ * value. --band needs no override: it's `color-mix(--accent, --bg)`
+ * already, so it recomputes from whichever of those a palette sets.
  *
  * No oklch() companion line for any value below, unlike site.css's own
- * :root — those lines exist there as browser fallbacks for hand-verified
- * conversions. Re-deriving eleven palettes' worth by hand risked silently
- * wrong numbers for no real benefit (a browser without oklch() support
- * still gets a fully correct palette from the hex line alone). */
+ * :root — a browser without oklch() support still gets a fully correct
+ * palette from the hex line alone. */
 
 :root[data-palette='gruvbox-dark'] {
   color-scheme: dark;

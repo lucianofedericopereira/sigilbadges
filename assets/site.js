@@ -203,15 +203,11 @@
   })();
 
   /* ---------- Search / jump to (command palette) ---------- */
-  /* Harvests this page's own h1/h2 (live DOM, re-read on every keystroke —
-     cheap at this page's size) and jumps to the nearest ancestor that
-     actually carries an id (header#top, section#compare, ...) rather than
-     assigning the heading itself a fresh one — that ancestor already has
-     scroll-margin-top set for the sticky nav, a fresh id on the heading
-     wouldn't. No fuzzy matching, just a case-insensitive substring filter;
-     ported from a multi-page "search or jump to" that also fetched other
-     pages on a local miss — dropped here since this page has nowhere else
-     to fetch from. */
+  /* Harvests h1/h2 (live DOM, re-read on every keystroke) and jumps to the
+     nearest ancestor that carries an id (header#top, section#compare, ...)
+     rather than assigning the heading itself a fresh one — that ancestor
+     already has scroll-margin-top set for the sticky nav. Plain
+     case-insensitive substring filter, no fuzzy matching. */
   (function initSearch() {
     const trigger = document.getElementById('search-trigger');
     const modal = document.getElementById('search-modal');
@@ -219,33 +215,24 @@
     const resultsEl = document.getElementById('search-results');
     if (!trigger || !modal || !input || !resultsEl) return;
 
-    // Two-page fallback (unchanged from treegen2): whichever of these isn't
-    // the current page is "the other page" to fall back to on a local
-    // search miss. Anything that isn't literally changelog.html is treated
-    // as index.html, so this still resolves sanely from "/" (a static
-    // server's implicit root). sigilbadges actually has three pages
-    // (index.html, docs.html, changelog.html) — the fallback only ever
-    // covers two of them (e.g. a docs.html visitor's local-miss falls back
-    // to index.html, not changelog.html — moot in that direction since
-    // both are non-changelog.html and resolve the same OTHER_PAGE anyway),
-    // the same single-fallback limitation treegen2's own two-page site
-    // has, just not extended to a third page.
+    // Whichever of these isn't the current page is "the other page" to
+    // fall back to on a local search miss. Anything that isn't literally
+    // changelog.html is treated as index.html, so this still resolves
+    // sanely from "/" (a static server's implicit root). This site has a
+    // third page (docs.html) that the fallback doesn't separately cover —
+    // a docs.html miss falls back to index.html, never to changelog.html.
     const CURRENT_PAGE = location.pathname.split('/').pop() === 'changelog.html' ? 'changelog.html' : 'index.html';
     const OTHER_PAGE = CURRENT_PAGE === 'changelog.html' ? 'index.html' : 'changelog.html';
     const OTHER_PAGE_LABEL = OTHER_PAGE === 'changelog.html' ? 'Changelog' : 'Home';
 
     // Mirrors assets/locale.css's :lang()/:has() reveal rule in JS instead
-    // of leaning on rendering, because one of the two callers below can't
-    // rely on rendering at all: harvestHeadings also runs against a
-    // fetched-but-never-attached other-page Document (below), which has
-    // no layout. innerText on an unrendered element falls back to
-    // textContent per spec — and textContent glues every [data-locale]
-    // span together regardless of which one is "active", since nothing
-    // is actually hidden without layout to hide it with. Confirmed live:
-    // a cross-page search result showed English + Spanish + Italian text
-    // concatenated in one line. Explicitly picking the span that matches
-    // the current locale (or the [data-i18n-default] fallback) works the
-    // same whether el is live or detached, so both callers can share it.
+    // of leaning on rendering, because harvestHeadings also runs against a
+    // fetched-but-never-attached other-page Document (below), which has no
+    // layout — innerText there falls back to textContent per spec, which
+    // glues every [data-locale] span together since nothing is actually
+    // hidden without layout to hide it with. Explicitly picking the span
+    // for the current locale (or [data-i18n-default]) works the same
+    // whether el is live or detached, so both callers can share it.
     const localizedText = (el, lang) => {
       const override = el.querySelector(`:scope > [data-locale="${lang}"]`);
       if (override) return override.textContent.trim();
