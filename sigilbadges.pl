@@ -152,6 +152,17 @@ for my $m (@markers) {
         $m->{type} = 'badge-row';
         $m->{ids}  = \@ids;
     }
+    elsif ($raw =~ /^\@?\$[A-Za-z_][A-Za-z0-9_]*\.[A-Za-z_][A-Za-z0-9_]*/) {
+        # sigilmd's own reference syntax (<!--[[ $table.key ]]--> / <!--[[
+        # @table.key ]]-->) shares this exact <!--[[ ]]--> bracket
+        # convention with no namespace to tell tools apart. Left untouched
+        # -- unambiguous since sigilbadges has no marker starting with '$'
+        # or '@', so skipping it can't mask a real sigilbadges typo. Its
+        # table-*declare* markers (a bare identifier, e.g. "config") are
+        # NOT whitelisted here -- that shape is indistinguishable from a
+        # mistyped 'badge:' marker, so it still hard-errors on purpose.
+        $m->{type} = 'foreign';
+    }
     else {
         die "sigilbadges: unrecognized marker '<!--[[ $raw ]]-->' -- expected 'badge: <key=value ...>' or 'badge-row'\n";
     }
@@ -185,6 +196,8 @@ for my $id (sort keys %badges) {
 # ---------------------------------------------------------------------------
 
 for my $m (reverse @markers) {
+    next if $m->{type} eq 'foreign';
+
     my $generated;
 
     if ($m->{type} eq 'badge') {

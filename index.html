@@ -239,9 +239,9 @@ try {
   <div class="wrap">
     <a class="brand notranslate" href="#top"><img class="brand-logo" src="assets/sigilbadges.svg" alt="sigilbadges" /></a>
     <div class="links" id="nav-links">
-      <a class="link" href="#how">How it works</a>
-      <a class="link" href="#styles">Styles</a>
-      <a class="link" href="#quick-start">Quick start</a>
+      <a class="link i18n" href="#how"><span data-i18n-default>How it works</span><span data-locale="es" class="notranslate">Cómo funciona</span><span data-locale="it" class="notranslate">Come funziona</span></a>
+      <a class="link i18n" href="#styles"><span data-i18n-default>Styles</span><span data-locale="es" class="notranslate">Estilos</span><span data-locale="it" class="notranslate">Stili</span></a>
+      <a class="link i18n" href="#quick-start"><span data-i18n-default>Quick start</span><span data-locale="es" class="notranslate">Inicio rápido</span><span data-locale="it" class="notranslate">Avvio rapido</span></a>
       <div class="links-external">
         <a class="link link--external i18n" href="docs.html"><span data-i18n-default>Docs</span><span data-locale="es" class="notranslate">Documentación</span><span data-locale="it" class="notranslate">Documentazione</span><svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
         <a class="link link--external i18n" href="changelog.html"><span data-i18n-default>Changelog</span><span data-locale="es" class="notranslate">Cambios</span><span data-locale="it" class="notranslate">Modifiche</span><svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
@@ -285,47 +285,47 @@ try {
 <header class="hero" id="top">
   <div class="wrap">
     <img src="assets/sigilbadges.svg" alt="sigilbadges" style="display:block; margin:0 auto 24px; width:min(420px, 80%); height:auto;" />
-    <p class="eyebrow">Perl · No dependencies</p>
-    <h1>SVG badges, generated straight into your README</h1>
-    <p class="tagline">Drop a marker comment in your Markdown, run one script (or the GitHub Action), and get logo + text badges rendered as real SVG — spliced back into the file in place.</p>
+    <p class="eyebrow i18n"><span data-i18n-default>Perl · No dependencies</span><span data-locale="es" class="notranslate">Perl · Sin dependencias</span><span data-locale="it" class="notranslate">Perl · Nessuna dipendenza</span></p>
+    <h1 class="i18n"><span data-i18n-default>SVG badges, generated straight into your README</span><span data-locale="es" class="notranslate">Insignias SVG, generadas directamente en tu README</span><span data-locale="it" class="notranslate">Badge SVG, generati direttamente nel tuo README</span></h1>
+    <p class="tagline i18n"><span data-i18n-default>Drop a marker comment in your Markdown, run one script (or the GitHub Action), and get logo + text badges rendered as real SVG — spliced back into the file in place.</span><span data-locale="es" class="notranslate">Coloca un comentario marcador en tu Markdown, ejecuta un script (o la GitHub Action), y obtén insignias de logo + texto renderizadas como SVG real — insertadas de nuevo en el archivo en su lugar.</span><span data-locale="it" class="notranslate">Inserisci un commento marcatore nel tuo Markdown, esegui uno script (o la GitHub Action), e ottieni badge logo + testo renderizzati come SVG reale — reinseriti nel file al loro posto.</span></p>
     <div class="badges">
-      <span class="badge">Pure core Perl</span>
-      <span class="badge">Zero CPAN deps</span>
-      <span class="badge">No external binary</span>
-      <span class="badge">CI-friendly --check</span>
+      <span class="badge i18n"><span data-i18n-default>Pure core Perl</span><span data-locale="es" class="notranslate">Perl núcleo puro</span><span data-locale="it" class="notranslate">Solo Perl core</span></span>
+      <span class="badge i18n"><span data-i18n-default>Zero CPAN deps</span><span data-locale="es" class="notranslate">Cero dependencias de CPAN</span><span data-locale="it" class="notranslate">Zero dipendenze CPAN</span></span>
+      <span class="badge i18n"><span data-i18n-default>No external binary</span><span data-locale="es" class="notranslate">Sin binarios externos</span><span data-locale="it" class="notranslate">Nessun binario esterno</span></span>
+      <span class="badge i18n"><span data-i18n-default>CI-friendly --check</span><span data-locale="es" class="notranslate">--check apto para CI</span><span data-locale="it" class="notranslate">--check adatto alla CI</span></span>
     </div>
     <div class="cta">
-      <a class="btn btn--primary" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">View on GitHub</a>
-      <a class="btn btn--ghost" href="docs.html">Read the docs</a>
+      <a class="btn btn--primary i18n" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener"><span data-i18n-default>View on GitHub</span><span data-locale="es" class="notranslate">Ver en GitHub</span><span data-locale="it" class="notranslate">Vedi su GitHub</span></a>
+      <a class="btn btn--ghost i18n" href="docs.html"><span data-i18n-default>Read the docs</span><span data-locale="es" class="notranslate">Leer la documentación</span><span data-locale="it" class="notranslate">Leggi la documentazione</span></a>
     </div>
   </div>
 </header>
 
 <section id="how">
   <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2>Marker in, SVG out</h2>
-    <p class="section-lead">No build step, no template engine. The script scans your Markdown for marker comments and rewrites only what's between them.</p>
+    <p class="eyebrow i18n"><span data-i18n-default>How it works</span><span data-locale="es" class="notranslate">Cómo funciona</span><span data-locale="it" class="notranslate">Come funziona</span></p>
+    <h2 class="i18n"><span data-i18n-default>Marker in, SVG out</span><span data-locale="es" class="notranslate">Marcador dentro, SVG fuera</span><span data-locale="it" class="notranslate">Marcatore dentro, SVG fuori</span></h2>
+    <p class="section-lead i18n"><span data-i18n-default>No build step, no template engine. The script scans your Markdown for marker comments and rewrites only what's between them.</span><span data-locale="es" class="notranslate">Sin paso de compilación, sin motor de plantillas. El script escanea tu Markdown en busca de comentarios marcadores y reescribe solo lo que hay entre ellos.</span><span data-locale="it" class="notranslate">Nessun passaggio di build, nessun motore di template. Lo script analizza il tuo Markdown alla ricerca di commenti marcatori e riscrive solo ciò che si trova tra di essi.</span></p>
     <div class="steps">
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Write a marker</h3>
-        <p>Drop <code class="inline">&lt;!--[[ badge: logo=php label="PHP" message="8.5" ]]--&gt;...&lt;!--/--&gt;</code> anywhere in your README.</p>
+        <h3 class="i18n"><span data-i18n-default>Write a marker</span><span data-locale="es" class="notranslate">Escribe un marcador</span><span data-locale="it" class="notranslate">Scrivi un marcatore</span></h3>
+        <p class="i18n"><span data-i18n-default>Drop <code class="inline">&lt;!--[[ badge: logo=php label="PHP" message="8.5" ]]--&gt;...&lt;!--/--&gt;</code> anywhere in your README.</span><span data-locale="es" class="notranslate">Coloca <code class="inline">&lt;!--[[ badge: logo=php label="PHP" message="8.5" ]]--&gt;...&lt;!--/--&gt;</code> en cualquier parte de tu README.</span><span data-locale="it" class="notranslate">Inserisci <code class="inline">&lt;!--[[ badge: logo=php label="PHP" message="8.5" ]]--&gt;...&lt;!--/--&gt;</code> in un punto qualsiasi del tuo README.</span></p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
-        <h3>Run the script</h3>
-        <p><code class="inline">perl sigilbadges.pl</code> — or wire it up as a GitHub Action, no interpreter setup required.</p>
+        <h3 class="i18n"><span data-i18n-default>Run the script</span><span data-locale="es" class="notranslate">Ejecuta el script</span><span data-locale="it" class="notranslate">Esegui lo script</span></h3>
+        <p class="i18n"><span data-i18n-default><code class="inline">perl sigilbadges.pl</code> — or wire it up as a GitHub Action, no interpreter setup required.</span><span data-locale="es" class="notranslate"><code class="inline">perl sigilbadges.pl</code> — o configúralo como una GitHub Action, sin necesidad de instalar un intérprete.</span><span data-locale="it" class="notranslate"><code class="inline">perl sigilbadges.pl</code> — oppure collegalo come GitHub Action, senza bisogno di configurare un interprete.</span></p>
       </div>
       <div class="step">
         <div class="step-number">3</div>
-        <h3>SVG is written</h3>
-        <p>Each distinct badge is rendered once to <code class="inline">assets/badges/</code> and only rewritten if its bytes actually changed.</p>
+        <h3 class="i18n"><span data-i18n-default>SVG is written</span><span data-locale="es" class="notranslate">Se escribe el SVG</span><span data-locale="it" class="notranslate">L'SVG viene scritto</span></h3>
+        <p class="i18n"><span data-i18n-default>Each distinct badge is rendered once to <code class="inline">assets/badges/</code> and only rewritten if its bytes actually changed.</span><span data-locale="es" class="notranslate">Cada insignia distinta se renderiza una vez en <code class="inline">assets/badges/</code> y solo se reescribe si sus bytes realmente cambiaron.</span><span data-locale="it" class="notranslate">Ogni badge distinto viene renderizzato una volta in <code class="inline">assets/badges/</code> e riscritto solo se i suoi byte sono effettivamente cambiati.</span></p>
       </div>
       <div class="step">
         <div class="step-number">4</div>
-        <h3>README is spliced</h3>
-        <p>The marker's body is replaced with the rendered <code class="inline">&lt;img&gt;</code> — re-running is always safe and idempotent.</p>
+        <h3 class="i18n"><span data-i18n-default>README is spliced</span><span data-locale="es" class="notranslate">El README se empalma</span><span data-locale="it" class="notranslate">Il README viene innestato</span></h3>
+        <p class="i18n"><span data-i18n-default>The marker's body is replaced with the rendered <code class="inline">&lt;img&gt;</code> — re-running is always safe and idempotent.</span><span data-locale="es" class="notranslate">El cuerpo del marcador se reemplaza con el <code class="inline">&lt;img&gt;</code> renderizado — volver a ejecutarlo siempre es seguro e idempotente.</span><span data-locale="it" class="notranslate">Il corpo del marcatore viene sostituito con l'<code class="inline">&lt;img&gt;</code> renderizzato — rieseguirlo è sempre sicuro e idempotente.</span></p>
       </div>
     </div>
   </div>
@@ -333,32 +333,32 @@ try {
 
 <section id="styles">
   <div class="wrap">
-    <p class="eyebrow">Styles</p>
-    <h2>Five renderers, one grammar</h2>
-    <p class="section-lead">Pick a look per badge, or let <code class="inline">chip</code> (the default) handle it.</p>
+    <p class="eyebrow i18n"><span data-i18n-default>Styles</span><span data-locale="es" class="notranslate">Estilos</span><span data-locale="it" class="notranslate">Stili</span></p>
+    <h2 class="i18n"><span data-i18n-default>Five renderers, one grammar</span><span data-locale="es" class="notranslate">Cinco renderizadores, una gramática</span><span data-locale="it" class="notranslate">Cinque renderer, una grammatica</span></h2>
+    <p class="section-lead i18n"><span data-i18n-default>Pick a look per badge, or let <code class="inline">chip</code> (the default) handle it.</span><span data-locale="es" class="notranslate">Elige un aspecto para cada insignia, o deja que <code class="inline">chip</code> (el predeterminado) se encargue.</span><span data-locale="it" class="notranslate">Scegli un aspetto per ogni badge, o lascia che <code class="inline">chip</code> (quello predefinito) se ne occupi.</span></p>
     <div class="steps">
-      <div class="step"><img src="assets/badges/style-chip.svg" alt="chip style example" /><h3>chip</h3><p>Gradient chip, logo first — this project's own look.</p></div>
-      <div class="step"><img src="assets/badges/style-flat.svg" alt="flat style example" /><h3>flat</h3><p>The classic shields.io two-tone look.</p></div>
-      <div class="step"><img src="assets/badges/style-flat-square.svg" alt="flat-square style example" /><h3>flat-square</h3><p>Same as flat, sharp corners.</p></div>
-      <div class="step"><img src="assets/badges/style-plastic.svg" alt="plastic style example" /><h3>plastic</h3><p>Two-tone with a glossy highlight band.</p></div>
-      <div class="step"><img src="assets/badges/style-ftb.svg" alt="for-the-badge style example" /><h3>for-the-badge</h3><p>Bigger, bold, uppercase text.</p></div>
+      <div class="step"><img src="assets/badges/style-chip.svg" alt="chip style example" /><h3>chip</h3><p class="i18n"><span data-i18n-default>Gradient chip, logo first — this project's own look.</span><span data-locale="es" class="notranslate">Chip degradado, logo primero — el estilo propio de este proyecto.</span><span data-locale="it" class="notranslate">Chip sfumato, logo per primo — lo stile caratteristico di questo progetto.</span></p></div>
+      <div class="step"><img src="assets/badges/style-flat.svg" alt="flat style example" /><h3>flat</h3><p class="i18n"><span data-i18n-default>The classic shields.io two-tone look.</span><span data-locale="es" class="notranslate">El clásico aspecto de dos tonos de shields.io.</span><span data-locale="it" class="notranslate">Il classico aspetto a due toni di shields.io.</span></p></div>
+      <div class="step"><img src="assets/badges/style-flat-square.svg" alt="flat-square style example" /><h3>flat-square</h3><p class="i18n"><span data-i18n-default>Same as flat, sharp corners.</span><span data-locale="es" class="notranslate">Igual que flat, con esquinas rectas.</span><span data-locale="it" class="notranslate">Come flat, ma con angoli netti.</span></p></div>
+      <div class="step"><img src="assets/badges/style-plastic.svg" alt="plastic style example" /><h3>plastic</h3><p class="i18n"><span data-i18n-default>Two-tone with a glossy highlight band.</span><span data-locale="es" class="notranslate">Dos tonos con una banda brillante de realce.</span><span data-locale="it" class="notranslate">Due toni con una banda lucida in evidenza.</span></p></div>
+      <div class="step"><img src="assets/badges/style-ftb.svg" alt="for-the-badge style example" /><h3>for-the-badge</h3><p class="i18n"><span data-i18n-default>Bigger, bold, uppercase text.</span><span data-locale="es" class="notranslate">Texto más grande, en negrita y mayúsculas.</span><span data-locale="it" class="notranslate">Testo più grande, in grassetto e maiuscolo.</span></p></div>
     </div>
-    <p class="section-lead" style="margin-top: 20px"><a href="docs.html#styles">Full style reference in the docs →</a></p>
+    <p class="section-lead i18n" style="margin-top: 20px"><a href="docs.html#styles"><span data-i18n-default>Full style reference in the docs →</span><span data-locale="es" class="notranslate">Referencia completa de estilos en la documentación →</span><span data-locale="it" class="notranslate">Riferimento completo degli stili nella documentazione →</span></a></p>
   </div>
 </section>
 
 <section id="quick-start">
   <div class="wrap">
-    <p class="eyebrow">Quick start</p>
-    <h2>Command line</h2>
+    <p class="eyebrow i18n"><span data-i18n-default>Quick start</span><span data-locale="es" class="notranslate">Inicio rápido</span><span data-locale="it" class="notranslate">Avvio rapido</span></p>
+    <h2 class="i18n"><span data-i18n-default>Command line</span><span data-locale="es" class="notranslate">Línea de comandos</span><span data-locale="it" class="notranslate">Riga di comando</span></h2>
     <pre><code>perl sigilbadges.pl [--file README.md] [--badges-dir assets/badges] [--check]</code></pre>
-    <p class="section-lead">Or as a GitHub Action:</p>
-    <pre><code>- uses: lucianofedericopereira/sigilbadges@v0.1.0
+    <p class="section-lead i18n"><span data-i18n-default>Or as a GitHub Action:</span><span data-locale="es" class="notranslate">O como una GitHub Action:</span><span data-locale="it" class="notranslate">Oppure come GitHub Action:</span></p>
+    <pre><code>- uses: lucianofedericopereira/sigilbadges@v0.1
   with:
     file: README.md</code></pre>
     <div class="cta" style="margin-top: 20px">
-      <a class="btn btn--primary" href="docs.html">Full documentation</a>
-      <a class="btn btn--ghost" href="changelog.html">Changelog</a>
+      <a class="btn btn--primary i18n" href="docs.html"><span data-i18n-default>Full documentation</span><span data-locale="es" class="notranslate">Documentación completa</span><span data-locale="it" class="notranslate">Documentazione completa</span></a>
+      <a class="btn btn--ghost i18n" href="changelog.html"><span data-i18n-default>Changelog</span><span data-locale="es" class="notranslate">Cambios</span><span data-locale="it" class="notranslate">Modifiche</span></a>
     </div>
   </div>
 </section>

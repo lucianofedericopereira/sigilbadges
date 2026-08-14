@@ -239,13 +239,13 @@ try {
   <div class="wrap">
     <a class="brand notranslate" href="index.html"><img class="brand-logo" src="assets/sigilbadges.svg" alt="sigilbadges" /></a>
     <div class="links" id="nav-links">
-      <a class="link" href="#grammar">Grammar</a>
-      <a class="link" href="#styles">Styles</a>
-      <a class="link" href="#keys">Keys</a>
-      <a class="link" href="#logos">Logos</a>
-      <a class="link" href="#cli">CLI</a>
-      <a class="link" href="#action">GitHub Action</a>
-      <a class="link" href="#ci">CI</a>
+      <a class="link i18n" href="#grammar"><span data-i18n-default>Grammar</span><span data-locale="es" class="notranslate">Gramática</span><span data-locale="it" class="notranslate">Grammatica</span></a>
+      <a class="link i18n" href="#styles"><span data-i18n-default>Styles</span><span data-locale="es" class="notranslate">Estilos</span><span data-locale="it" class="notranslate">Stili</span></a>
+      <a class="link i18n" href="#keys"><span data-i18n-default>Keys</span><span data-locale="es" class="notranslate">Claves</span><span data-locale="it" class="notranslate">Chiavi</span></a>
+      <a class="link i18n" href="#logos"><span data-i18n-default>Logos</span><span data-locale="es" class="notranslate">Logos</span><span data-locale="it" class="notranslate">Loghi</span></a>
+      <a class="link i18n" href="#cli"><span data-i18n-default>CLI</span><span data-locale="es" class="notranslate">Línea de comandos</span><span data-locale="it" class="notranslate">Riga di comando</span></a>
+      <a class="link i18n" href="#action"><span data-i18n-default>GitHub Action</span><span data-locale="es" class="notranslate">GitHub Action</span><span data-locale="it" class="notranslate">GitHub Action</span></a>
+      <a class="link i18n" href="#ci"><span data-i18n-default>CI</span><span data-locale="es" class="notranslate">CI</span><span data-locale="it" class="notranslate">CI</span></a>
       <a class="link" href="#faq">FAQ</a>
       <div class="links-external">
         <a class="link link--external i18n" href="index.html"><span data-i18n-default>Home</span><span data-locale="es" class="notranslate">Inicio</span><span data-locale="it" class="notranslate">Home</span><svg class="link-external-icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
@@ -289,84 +289,84 @@ try {
 
 <header class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Documentation</p>
+    <p class="eyebrow i18n"><span data-i18n-default>Documentation</span><span data-locale="es" class="notranslate">Documentación</span><span data-locale="it" class="notranslate">Documentazione</span></p>
     <h1>sigilbadges</h1>
-    <p class="tagline">Generated SVG badges (logo + text), spliced into your README via marker comments. No template language, no CPAN dependencies, one Perl script.</p>
+    <p class="tagline i18n"><span data-i18n-default>Generated SVG badges (logo + text), spliced into your README via marker comments. No template language, no CPAN dependencies, one Perl script.</span><span data-locale="es" class="notranslate">Insignias SVG generadas (logo + texto), insertadas en tu README mediante comentarios marcadores. Sin lenguaje de plantillas, sin dependencias de CPAN, un solo script de Perl.</span><span data-locale="it" class="notranslate">Badge SVG generati (logo + testo), inseriti nel tuo README tramite commenti marcatori. Nessun linguaggio di template, nessuna dipendenza CPAN, un solo script Perl.</span></p>
     <div class="cta">
-      <a class="btn btn--primary" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener">View on GitHub</a>
-      <a class="btn btn--ghost" href="changelog.html">Changelog</a>
+      <a class="btn btn--primary i18n" href="https://github.com/lucianofedericopereira/sigilbadges" target="_blank" rel="noopener"><span data-i18n-default>View on GitHub</span><span data-locale="es" class="notranslate">Ver en GitHub</span><span data-locale="it" class="notranslate">Vedi su GitHub</span></a>
+      <a class="btn btn--ghost i18n" href="changelog.html"><span data-i18n-default>Changelog</span><span data-locale="es" class="notranslate">Cambios</span><span data-locale="it" class="notranslate">Modifiche</span></a>
     </div>
   </div>
 </header>
 
 <section id="grammar">
   <div class="wrap doc">
-    <p class="eyebrow">Grammar</p>
-    <h2>Marker syntax</h2>
-    <p class="section-lead">A single badge, or a responsive row of badges sharing one set of defaults. Both idioms keep their spec in the marker's own tag rather than the disposable body, so a re-run never loses it.</p>
+    <p class="eyebrow i18n"><span data-i18n-default>Grammar</span><span data-locale="es" class="notranslate">Gramática</span><span data-locale="it" class="notranslate">Grammatica</span></p>
+    <h2 class="i18n"><span data-i18n-default>Marker syntax</span><span data-locale="es" class="notranslate">Sintaxis del marcador</span><span data-locale="it" class="notranslate">Sintassi del marcatore</span></h2>
+    <p class="section-lead i18n"><span data-i18n-default>A single badge, or a responsive row of badges sharing one set of defaults. Both idioms keep their spec in the marker's own tag rather than the disposable body, so a re-run never loses it.</span><span data-locale="es" class="notranslate">Una sola insignia, o una fila responsiva de insignias que comparten un mismo conjunto de valores predeterminados. Ambos modelos guardan su especificación en la propia etiqueta del marcador en lugar del cuerpo desechable, así que una reejecución nunca la pierde.</span><span data-locale="it" class="notranslate">Un singolo badge, oppure una riga responsive di badge che condividono un unico insieme di valori predefiniti. Entrambi gli idiomi mantengono la propria specifica nel tag stesso del marcatore anziché nel corpo usa e getta, così una riesecuzione non la perde mai.</span></p>
 
-    <h3>A single badge</h3>
+    <h3 class="i18n"><span data-i18n-default>A single badge</span><span data-locale="es" class="notranslate">Una sola insignia</span><span data-locale="it" class="notranslate">Un singolo badge</span></h3>
     <pre><code>&lt;!--[[ badge: logo=php label="PHP" message="8.5" ]]--&gt;...&lt;!--/--&gt;</code></pre>
 
-    <h3>A row of badges</h3>
+    <h3 class="i18n"><span data-i18n-default>A row of badges</span><span data-locale="es" class="notranslate">Una fila de insignias</span><span data-locale="it" class="notranslate">Una riga di badge</span></h3>
     <pre><code>&lt;!--[[ badge-row: style=chip
 logo=php label="PHP" message="8.5"
 logo=node message="20.x"
 ]]--&gt;...&lt;!--/--&gt;</code></pre>
-    <p>The <code class="inline">badge-row: key=value ...</code> header is optional and sets defaults every line inherits/overrides. The body between the markers is pure rendered output, fully regenerated on every run — never hand-edit it.</p>
-    <div class="callout">Real markers have no space after <code class="inline">&lt;!--</code> or before <code class="inline">--&gt;</code>. The scanner matches anywhere in the file, including inside fenced code blocks — it has no notion of Markdown fences.</div>
+    <p class="i18n"><span data-i18n-default>The <code class="inline">badge-row: key=value ...</code> header is optional and sets defaults every line inherits/overrides. The body between the markers is pure rendered output, fully regenerated on every run — never hand-edit it.</span><span data-locale="es" class="notranslate">El encabezado <code class="inline">badge-row: key=value ...</code> es opcional y define valores predeterminados que cada línea hereda o sobrescribe. El cuerpo entre los marcadores es salida puramente renderizada, totalmente regenerada en cada ejecución — nunca lo edites a mano.</span><span data-locale="it" class="notranslate">L'intestazione <code class="inline">badge-row: key=value ...</code> è opzionale e imposta valori predefiniti che ogni riga eredita o sovrascrive. Il corpo tra i marcatori è output puramente renderizzato, rigenerato completamente a ogni esecuzione — non modificarlo mai a mano.</span></p>
+    <div class="callout i18n"><span data-i18n-default>Real markers have no space after <code class="inline">&lt;!--</code> or before <code class="inline">--&gt;</code>. The scanner matches anywhere in the file, including inside fenced code blocks — it has no notion of Markdown fences.</span><span data-locale="es" class="notranslate">Los marcadores reales no tienen espacio después de <code class="inline">&lt;!--</code> ni antes de <code class="inline">--&gt;</code>. El escáner encuentra coincidencias en cualquier parte del archivo, incluso dentro de bloques de código cercados — no tiene noción de los fences de Markdown.</span><span data-locale="it" class="notranslate">I marcatori reali non hanno spazio dopo <code class="inline">&lt;!--</code> né prima di <code class="inline">--&gt;</code>. Lo scanner trova corrispondenze in qualsiasi punto del file, anche all'interno di blocchi di codice recintati — non ha alcuna nozione dei fence di Markdown.</span></div>
   </div>
 </section>
 
 <section id="keys">
   <div class="wrap doc">
-    <p class="eyebrow">Reference</p>
-    <h2>Keys</h2>
+    <p class="eyebrow i18n"><span data-i18n-default>Reference</span><span data-locale="es" class="notranslate">Referencia</span><span data-locale="it" class="notranslate">Riferimento</span></p>
+    <h2 class="i18n"><span data-i18n-default>Keys</span><span data-locale="es" class="notranslate">Claves</span><span data-locale="it" class="notranslate">Chiavi</span></h2>
     <div class="table-scroll">
       <table>
-        <thead><tr><th>key</th><th>meaning</th><th>default</th></tr></thead>
+        <thead><tr><th class="i18n"><span data-i18n-default>key</span><span data-locale="es" class="notranslate">clave</span><span data-locale="it" class="notranslate">chiave</span></th><th class="i18n"><span data-i18n-default>meaning</span><span data-locale="es" class="notranslate">significado</span><span data-locale="it" class="notranslate">significato</span></th><th class="i18n"><span data-i18n-default>default</span><span data-locale="es" class="notranslate">predeterminado</span><span data-locale="it" class="notranslate">predefinito</span></th></tr></thead>
         <tbody>
-          <tr><td><code class="inline">logo</code></td><td>name of an SVG in <code class="inline">assets/logos/</code> (no extension)</td><td>—</td></tr>
-          <tr><td><code class="inline">label</code></td><td>left-hand text</td><td>—</td></tr>
-          <tr><td><code class="inline">message</code></td><td>right-hand text</td><td>—</td></tr>
-          <tr><td><code class="inline">color</code></td><td>bare hex, no <code class="inline">#</code> (e.g. <code class="inline">color=336791</code>)</td><td>logo's brand color, else <code class="inline">555555</code></td></tr>
-          <tr><td><code class="inline">label-color</code></td><td>bare hex for the label segment</td><td><code class="inline">555555</code></td></tr>
-          <tr><td><code class="inline">logo-color</code></td><td>bare hex to recolor the logo</td><td><code class="inline">FFFFFF</code></td></tr>
+          <tr><td><code class="inline">logo</code></td><td class="i18n"><span data-i18n-default>name of an SVG in <code class="inline">assets/logos/</code> (no extension)</span><span data-locale="es" class="notranslate">nombre de un SVG en <code class="inline">assets/logos/</code> (sin extensión)</span><span data-locale="it" class="notranslate">nome di un SVG in <code class="inline">assets/logos/</code> (senza estensione)</span></td><td>—</td></tr>
+          <tr><td><code class="inline">label</code></td><td class="i18n"><span data-i18n-default>left-hand text</span><span data-locale="es" class="notranslate">texto del lado izquierdo</span><span data-locale="it" class="notranslate">testo a sinistra</span></td><td>—</td></tr>
+          <tr><td><code class="inline">message</code></td><td class="i18n"><span data-i18n-default>right-hand text</span><span data-locale="es" class="notranslate">texto del lado derecho</span><span data-locale="it" class="notranslate">testo a destra</span></td><td>—</td></tr>
+          <tr><td><code class="inline">color</code></td><td class="i18n"><span data-i18n-default>bare hex, no <code class="inline">#</code> (e.g. <code class="inline">color=336791</code>)</span><span data-locale="es" class="notranslate">hex sin adornos, sin <code class="inline">#</code> (ej. <code class="inline">color=336791</code>)</span><span data-locale="it" class="notranslate">hex nudo, senza <code class="inline">#</code> (es. <code class="inline">color=336791</code>)</span></td><td class="i18n"><span data-i18n-default>logo's brand color, else <code class="inline">555555</code></span><span data-locale="es" class="notranslate">color de marca del logo, o si no <code class="inline">555555</code></span><span data-locale="it" class="notranslate">colore del brand del logo, altrimenti <code class="inline">555555</code></span></td></tr>
+          <tr><td><code class="inline">label-color</code></td><td class="i18n"><span data-i18n-default>bare hex for the label segment</span><span data-locale="es" class="notranslate">hex sin adornos para el segmento de la etiqueta</span><span data-locale="it" class="notranslate">hex nudo per il segmento dell'etichetta</span></td><td><code class="inline">555555</code></td></tr>
+          <tr><td><code class="inline">logo-color</code></td><td class="i18n"><span data-i18n-default>bare hex to recolor the logo</span><span data-locale="es" class="notranslate">hex sin adornos para recolorear el logo</span><span data-locale="it" class="notranslate">hex nudo per ricolorare il logo</span></td><td><code class="inline">FFFFFF</code></td></tr>
           <tr><td><code class="inline">style</code></td><td><code class="inline">chip</code>, <code class="inline">flat</code>, <code class="inline">flat-square</code>, <code class="inline">plastic</code>, <code class="inline">for-the-badge</code></td><td><code class="inline">chip</code></td></tr>
-          <tr><td><code class="inline">id</code></td><td>explicit filename stem (<code class="inline">assets/badges/&lt;id&gt;.svg</code>)</td><td>derived from <code class="inline">logo</code> / <code class="inline">label</code> / <code class="inline">message</code></td></tr>
-          <tr><td><code class="inline">link</code></td><td>wraps the badge <code class="inline">&lt;img&gt;</code> in an <code class="inline">&lt;a href="..."&gt;</code></td><td>—</td></tr>
-          <tr><td><code class="inline">alt</code></td><td><code class="inline">alt</code> text on the <code class="inline">&lt;img&gt;</code></td><td><code class="inline">label</code> + <code class="inline">message</code>, else <code class="inline">logo</code></td></tr>
+          <tr><td><code class="inline">id</code></td><td class="i18n"><span data-i18n-default>explicit filename stem (<code class="inline">assets/badges/&lt;id&gt;.svg</code>)</span><span data-locale="es" class="notranslate">nombre base de archivo explícito (<code class="inline">assets/badges/&lt;id&gt;.svg</code>)</span><span data-locale="it" class="notranslate">nome base del file esplicito (<code class="inline">assets/badges/&lt;id&gt;.svg</code>)</span></td><td class="i18n"><span data-i18n-default>derived from <code class="inline">logo</code> / <code class="inline">label</code> / <code class="inline">message</code></span><span data-locale="es" class="notranslate">derivado de <code class="inline">logo</code> / <code class="inline">label</code> / <code class="inline">message</code></span><span data-locale="it" class="notranslate">derivato da <code class="inline">logo</code> / <code class="inline">label</code> / <code class="inline">message</code></span></td></tr>
+          <tr><td><code class="inline">link</code></td><td class="i18n"><span data-i18n-default>wraps the badge <code class="inline">&lt;img&gt;</code> in an <code class="inline">&lt;a href="..."&gt;</code></span><span data-locale="es" class="notranslate">envuelve el <code class="inline">&lt;img&gt;</code> de la insignia en un <code class="inline">&lt;a href="..."&gt;</code></span><span data-locale="it" class="notranslate">racchiude l'<code class="inline">&lt;img&gt;</code> del badge in un <code class="inline">&lt;a href="..."&gt;</code></span></td><td>—</td></tr>
+          <tr><td><code class="inline">alt</code></td><td class="i18n"><span data-i18n-default><code class="inline">alt</code> text on the <code class="inline">&lt;img&gt;</code></span><span data-locale="es" class="notranslate">texto <code class="inline">alt</code> en el <code class="inline">&lt;img&gt;</code></span><span data-locale="it" class="notranslate">testo <code class="inline">alt</code> sull'<code class="inline">&lt;img&gt;</code></span></td><td class="i18n"><span data-i18n-default><code class="inline">label</code> + <code class="inline">message</code>, else <code class="inline">logo</code></span><span data-locale="es" class="notranslate"><code class="inline">label</code> + <code class="inline">message</code>, o si no <code class="inline">logo</code></span><span data-locale="it" class="notranslate"><code class="inline">label</code> + <code class="inline">message</code>, altrimenti <code class="inline">logo</code></span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="section-lead" style="margin-top: 16px">Colors are always a bare 6-digit hex value — no CSS color names, no leading <code class="inline">#</code>.</p>
+    <p class="section-lead i18n" style="margin-top: 16px"><span data-i18n-default>Colors are always a bare 6-digit hex value — no CSS color names, no leading <code class="inline">#</code>.</span><span data-locale="es" class="notranslate">Los colores siempre son un valor hexadecimal de 6 dígitos sin adornos — sin nombres de color CSS, sin <code class="inline">#</code> inicial.</span><span data-locale="it" class="notranslate">I colori sono sempre un valore esadecimale a 6 cifre nudo — niente nomi di colore CSS, niente <code class="inline">#</code> iniziale.</span></p>
   </div>
 </section>
 
 <section id="styles">
   <div class="wrap doc">
-    <p class="eyebrow">Reference</p>
-    <h2>Styles</h2>
-    <p class="section-lead">Five renderers, one grammar. <code class="inline">flat</code>, <code class="inline">flat-square</code>, and <code class="inline">plastic</code> only render as two colored segments when <em>both</em> <code class="inline">label</code> and <code class="inline">message</code> are given (shields.io's own convention) — with just one of the two, it collapses to a single segment in <code class="inline">color</code>.</p>
+    <p class="eyebrow i18n"><span data-i18n-default>Reference</span><span data-locale="es" class="notranslate">Referencia</span><span data-locale="it" class="notranslate">Riferimento</span></p>
+    <h2 class="i18n"><span data-i18n-default>Styles</span><span data-locale="es" class="notranslate">Estilos</span><span data-locale="it" class="notranslate">Stili</span></h2>
+    <p class="section-lead i18n"><span data-i18n-default>Five renderers, one grammar. <code class="inline">flat</code>, <code class="inline">flat-square</code>, and <code class="inline">plastic</code> only render as two colored segments when <em>both</em> <code class="inline">label</code> and <code class="inline">message</code> are given (shields.io's own convention) — with just one of the two, it collapses to a single segment in <code class="inline">color</code>.</span><span data-locale="es" class="notranslate">Cinco renderizadores, una gramática. <code class="inline">flat</code>, <code class="inline">flat-square</code> y <code class="inline">plastic</code> solo se renderizan como dos segmentos de color cuando se dan <em>ambos</em> <code class="inline">label</code> y <code class="inline">message</code> (la propia convención de shields.io) — con solo uno de los dos, colapsa en un único segmento de <code class="inline">color</code>.</span><span data-locale="it" class="notranslate">Cinque renderer, una grammatica. <code class="inline">flat</code>, <code class="inline">flat-square</code> e <code class="inline">plastic</code> vengono renderizzati come due segmenti colorati solo quando sono presenti <em>entrambi</em> <code class="inline">label</code> e <code class="inline">message</code> (la stessa convenzione di shields.io) — con uno solo dei due, collassa in un unico segmento di <code class="inline">color</code>.</span></p>
 
     <div class="variant">
-      <div class="head"><span class="name">chip</span><span class="desc">rounded chip, top-to-bottom gradient, logo first — this project's own look</span></div>
+      <div class="head"><span class="name">chip</span><span class="desc i18n"><span data-i18n-default>rounded chip, top-to-bottom gradient, logo first — this project's own look</span><span data-locale="es" class="notranslate">chip redondeado, degradado de arriba a abajo, logo primero — el estilo propio de este proyecto</span><span data-locale="it" class="notranslate">chip arrotondato, sfumatura dall'alto in basso, logo per primo — lo stile caratteristico di questo progetto</span></span></div>
       <div class="body"><img src="assets/badges/style-chip.svg" alt="React 18.x, chip style" /></div>
     </div>
     <div class="variant">
-      <div class="head"><span class="name">flat</span><span class="desc">two-tone rectangle, rounded corners — the classic shields.io look</span></div>
+      <div class="head"><span class="name">flat</span><span class="desc i18n"><span data-i18n-default>two-tone rectangle, rounded corners — the classic shields.io look</span><span data-locale="es" class="notranslate">rectángulo de dos tonos, esquinas redondeadas — el aspecto clásico de shields.io</span><span data-locale="it" class="notranslate">rettangolo a due toni, angoli arrotondati — l'aspetto classico di shields.io</span></span></div>
       <div class="body"><img src="assets/badges/style-flat.svg" alt="build passing, flat style" /></div>
     </div>
     <div class="variant">
-      <div class="head"><span class="name">flat-square</span><span class="desc">same two-tone layout as flat, sharp corners</span></div>
+      <div class="head"><span class="name">flat-square</span><span class="desc i18n"><span data-i18n-default>same two-tone layout as flat, sharp corners</span><span data-locale="es" class="notranslate">mismo diseño de dos tonos que flat, esquinas rectas</span><span data-locale="it" class="notranslate">stesso layout a due toni di flat, angoli netti</span></span></div>
       <div class="body"><img src="assets/badges/style-flat-square.svg" alt="coverage 92%, flat-square style" /></div>
     </div>
     <div class="variant">
-      <div class="head"><span class="name">plastic</span><span class="desc">same two-tone layout, with a glossy highlight band</span></div>
+      <div class="head"><span class="name">plastic</span><span class="desc i18n"><span data-i18n-default>same two-tone layout, with a glossy highlight band</span><span data-locale="es" class="notranslate">mismo diseño de dos tonos, con una banda brillante de realce</span><span data-locale="it" class="notranslate">stesso layout a due toni, con una banda lucida in evidenza</span></span></div>
       <div class="body"><img src="assets/badges/style-plastic.svg" alt="version v2.0.4, plastic style" /></div>
     </div>
     <div class="variant">
-      <div class="head"><span class="name">for-the-badge</span><span class="desc">bigger, bold, uppercase label/message text</span></div>
+      <div class="head"><span class="name">for-the-badge</span><span class="desc i18n"><span data-i18n-default>bigger, bold, uppercase label/message text</span><span data-locale="es" class="notranslate">texto de label/message más grande, en negrita y mayúsculas</span><span data-locale="it" class="notranslate">testo di label/message più grande, in grassetto e maiuscolo</span></span></div>
       <div class="body"><img src="assets/badges/style-ftb.svg" alt="docker ready, for-the-badge style" /></div>
     </div>
   </div>
@@ -374,9 +374,9 @@ logo=node message="20.x"
 
 <section id="logos">
   <div class="wrap doc">
-    <p class="eyebrow">Reference</p>
-    <h2>Bundled logos</h2>
-    <p class="section-lead">Available under <code class="inline">assets/logos/&lt;name&gt;.svg</code>, each with a default brand color. A badge with <code class="inline">logo=</code> and no <code class="inline">color=</code> uses this table automatically.</p>
+    <p class="eyebrow i18n"><span data-i18n-default>Reference</span><span data-locale="es" class="notranslate">Referencia</span><span data-locale="it" class="notranslate">Riferimento</span></p>
+    <h2 class="i18n"><span data-i18n-default>Bundled logos</span><span data-locale="es" class="notranslate">Logos incluidos</span><span data-locale="it" class="notranslate">Loghi inclusi</span></h2>
+    <p class="section-lead i18n"><span data-i18n-default>Available under <code class="inline">assets/logos/&lt;name&gt;.svg</code>, each with a default brand color. A badge with <code class="inline">logo=</code> and no <code class="inline">color=</code> uses this table automatically.</span><span data-locale="es" class="notranslate">Disponibles en <code class="inline">assets/logos/&lt;name&gt;.svg</code>, cada uno con un color de marca predeterminado. Una insignia con <code class="inline">logo=</code> y sin <code class="inline">color=</code> usa esta tabla automáticamente.</span><span data-locale="it" class="notranslate">Disponibili in <code class="inline">assets/logos/&lt;name&gt;.svg</code>, ciascuno con un colore del brand predefinito. Un badge con <code class="inline">logo=</code> e senza <code class="inline">color=</code> usa automaticamente questa tabella.</span></p>
     <div class="swatches">
       <div class="swatch"><span class="dot" style="background:#0052CC"></span>agile <span class="tag">0052CC</span></div>
       <div class="swatch"><span class="dot" style="background:#EC4899"></span>ai <span class="tag">EC4899</span></div>
@@ -405,16 +405,16 @@ logo=node message="20.x"
 
 <section id="cli">
   <div class="wrap doc">
-    <p class="eyebrow">Usage</p>
-    <h2>Command line</h2>
+    <p class="eyebrow i18n"><span data-i18n-default>Usage</span><span data-locale="es" class="notranslate">Uso</span><span data-locale="it" class="notranslate">Utilizzo</span></p>
+    <h2 class="i18n"><span data-i18n-default>Command line</span><span data-locale="es" class="notranslate">Línea de comandos</span><span data-locale="it" class="notranslate">Riga di comando</span></h2>
     <pre><code>perl sigilbadges.pl [--file README.md] [--badges-dir assets/badges] [--check]</code></pre>
     <div class="table-scroll">
       <table>
-        <thead><tr><th>flag</th><th>meaning</th><th>default</th></tr></thead>
+        <thead><tr><th class="i18n"><span data-i18n-default>flag</span><span data-locale="es" class="notranslate">opción</span><span data-locale="it" class="notranslate">opzione</span></th><th class="i18n"><span data-i18n-default>meaning</span><span data-locale="es" class="notranslate">significado</span><span data-locale="it" class="notranslate">significato</span></th><th class="i18n"><span data-i18n-default>default</span><span data-locale="es" class="notranslate">predeterminado</span><span data-locale="it" class="notranslate">predefinito</span></th></tr></thead>
         <tbody>
-          <tr><td><code class="inline">--file</code></td><td>the Markdown file to scan and rewrite</td><td><code class="inline">README.md</code></td></tr>
-          <tr><td><code class="inline">--badges-dir</code></td><td>where generated <code class="inline">.svg</code> files are written</td><td><code class="inline">assets/badges</code></td></tr>
-          <tr><td><code class="inline">--check</code></td><td>exit non-zero if the file or any badge is out of date, without writing anything</td><td>off — CI-friendly</td></tr>
+          <tr><td><code class="inline">--file</code></td><td class="i18n"><span data-i18n-default>the Markdown file to scan and rewrite</span><span data-locale="es" class="notranslate">el archivo Markdown a escanear y reescribir</span><span data-locale="it" class="notranslate">il file Markdown da analizzare e riscrivere</span></td><td><code class="inline">README.md</code></td></tr>
+          <tr><td><code class="inline">--badges-dir</code></td><td class="i18n"><span data-i18n-default>where generated <code class="inline">.svg</code> files are written</span><span data-locale="es" class="notranslate">dónde se escriben los archivos <code class="inline">.svg</code> generados</span><span data-locale="it" class="notranslate">dove vengono scritti i file <code class="inline">.svg</code> generati</span></td><td><code class="inline">assets/badges</code></td></tr>
+          <tr><td><code class="inline">--check</code></td><td class="i18n"><span data-i18n-default>exit non-zero if the file or any badge is out of date, without writing anything</span><span data-locale="es" class="notranslate">termina con código distinto de cero si el archivo o alguna insignia está desactualizada, sin escribir nada</span><span data-locale="it" class="notranslate">termina con codice diverso da zero se il file o un badge non è aggiornato, senza scrivere nulla</span></td><td class="i18n"><span data-i18n-default>off — CI-friendly</span><span data-locale="es" class="notranslate">desactivado — apto para CI</span><span data-locale="it" class="notranslate">disattivato — adatto alla CI</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -423,10 +423,10 @@ logo=node message="20.x"
 
 <section id="action">
   <div class="wrap doc">
-    <p class="eyebrow">GitHub Marketplace</p>
-    <h2>GitHub Action</h2>
-    <p class="section-lead">The same script, wrapped as a composite action — no interpreter setup step, since GitHub-hosted runners ship Perl natively.</p>
-    <pre><code>- uses: lucianofedericopereira/sigilbadges@v0.1.0
+    <p class="eyebrow i18n"><span data-i18n-default>GitHub Marketplace</span><span data-locale="es" class="notranslate">GitHub Marketplace</span><span data-locale="it" class="notranslate">GitHub Marketplace</span></p>
+    <h2 class="i18n"><span data-i18n-default>GitHub Action</span><span data-locale="es" class="notranslate">GitHub Action</span><span data-locale="it" class="notranslate">GitHub Action</span></h2>
+    <p class="section-lead i18n"><span data-i18n-default>The same script, wrapped as a composite action — no interpreter setup step, since GitHub-hosted runners ship Perl natively.</span><span data-locale="es" class="notranslate">El mismo script, envuelto como una composite action — sin paso de configuración de intérprete, ya que los runners alojados por GitHub incluyen Perl de forma nativa.</span><span data-locale="it" class="notranslate">Lo stesso script, avvolto come una composite action — senza passaggio di configurazione dell'interprete, poiché i runner ospitati da GitHub includono Perl in modo nativo.</span></p>
+    <pre><code>- uses: lucianofedericopereira/sigilbadges@v0.1
   with:
     file: README.md
     badges-dir: assets/badges
@@ -434,51 +434,51 @@ logo=node message="20.x"
     commit: "true"</code></pre>
     <div class="table-scroll">
       <table>
-        <thead><tr><th>input</th><th>meaning</th><th>default</th></tr></thead>
+        <thead><tr><th class="i18n"><span data-i18n-default>input</span><span data-locale="es" class="notranslate">entrada</span><span data-locale="it" class="notranslate">input</span></th><th class="i18n"><span data-i18n-default>meaning</span><span data-locale="es" class="notranslate">significado</span><span data-locale="it" class="notranslate">significato</span></th><th class="i18n"><span data-i18n-default>default</span><span data-locale="es" class="notranslate">predeterminado</span><span data-locale="it" class="notranslate">predefinito</span></th></tr></thead>
         <tbody>
-          <tr><td><code class="inline">file</code></td><td>Markdown file to scan and rewrite</td><td><code class="inline">README.md</code></td></tr>
-          <tr><td><code class="inline">badges-dir</code></td><td>where generated SVGs are written</td><td><code class="inline">assets/badges</code></td></tr>
-          <tr><td><code class="inline">check</code></td><td>fail the job instead of writing, when out of date</td><td><code class="inline">false</code></td></tr>
-          <tr><td><code class="inline">commit</code></td><td>commit and push changes back to the branch</td><td><code class="inline">true</code></td></tr>
-          <tr><td><code class="inline">commit-message</code></td><td>commit message used when <code class="inline">commit</code> is true</td><td><code class="inline">docs: update badges [skip ci]</code></td></tr>
+          <tr><td><code class="inline">file</code></td><td class="i18n"><span data-i18n-default>Markdown file to scan and rewrite</span><span data-locale="es" class="notranslate">Archivo Markdown a escanear y reescribir</span><span data-locale="it" class="notranslate">File Markdown da analizzare e riscrivere</span></td><td><code class="inline">README.md</code></td></tr>
+          <tr><td><code class="inline">badges-dir</code></td><td class="i18n"><span data-i18n-default>where generated SVGs are written</span><span data-locale="es" class="notranslate">dónde se escriben los SVG generados</span><span data-locale="it" class="notranslate">dove vengono scritti gli SVG generati</span></td><td><code class="inline">assets/badges</code></td></tr>
+          <tr><td><code class="inline">check</code></td><td class="i18n"><span data-i18n-default>fail the job instead of writing, when out of date</span><span data-locale="es" class="notranslate">hace fallar el job en lugar de escribir, cuando está desactualizado</span><span data-locale="it" class="notranslate">fa fallire il job invece di scrivere, quando non è aggiornato</span></td><td><code class="inline">false</code></td></tr>
+          <tr><td><code class="inline">commit</code></td><td class="i18n"><span data-i18n-default>commit and push changes back to the branch</span><span data-locale="es" class="notranslate">confirma y envía los cambios de vuelta a la rama</span><span data-locale="it" class="notranslate">esegue il commit e il push delle modifiche sul branch</span></td><td><code class="inline">true</code></td></tr>
+          <tr><td><code class="inline">commit-message</code></td><td class="i18n"><span data-i18n-default>commit message used when <code class="inline">commit</code> is true</span><span data-locale="es" class="notranslate">mensaje de commit usado cuando <code class="inline">commit</code> es true</span><span data-locale="it" class="notranslate">messaggio di commit usato quando <code class="inline">commit</code> è true</span></td><td><code class="inline">docs: update badges [skip ci]</code></td></tr>
         </tbody>
       </table>
     </div>
-    <p>Marketplace branding uses the <strong>award</strong> icon on a <strong>gray-dark</strong> background — the same graphite tone as the <code class="inline">sigilbadges.svg</code> wordmark, not the green GitHub defaults to for most starter actions.</p>
+    <p class="i18n"><span data-i18n-default>Marketplace branding uses the <strong>award</strong> icon on a <strong>gray-dark</strong> background — the same graphite tone as the <code class="inline">sigilbadges.svg</code> wordmark, not the green GitHub defaults to for most starter actions.</span><span data-locale="es" class="notranslate">La marca de Marketplace usa el icono <strong>award</strong> sobre un fondo <strong>gray-dark</strong> — el mismo tono grafito que el logotipo <code class="inline">sigilbadges.svg</code>, no el verde que GitHub usa por defecto para la mayoría de las actions iniciales.</span><span data-locale="it" class="notranslate">Il branding di Marketplace usa l'icona <strong>award</strong> su uno sfondo <strong>gray-dark</strong> — la stessa tonalità grafite del wordmark <code class="inline">sigilbadges.svg</code>, non il verde che GitHub usa di default per la maggior parte delle action di partenza.</span></p>
   </div>
 </section>
 
 <section id="ci">
   <div class="wrap doc">
-    <p class="eyebrow">Continuous Integration</p>
-    <h2>CI</h2>
-    <p class="section-lead">The workflow in <code class="inline">.github/workflows/ci.yml</code> runs the test suite unmodified across a matrix of Perl releases (native runner + older interpreters), and a dogfooding job that runs the action against this repo's own <code class="inline">README.md</code> with <code class="inline">--check</code> — the same pattern the badges below in the changelog are generated with.</p>
+    <p class="eyebrow i18n"><span data-i18n-default>Continuous Integration</span><span data-locale="es" class="notranslate">Integración continua</span><span data-locale="it" class="notranslate">Integrazione continua</span></p>
+    <h2 class="i18n"><span data-i18n-default>CI</span><span data-locale="es" class="notranslate">CI</span><span data-locale="it" class="notranslate">CI</span></h2>
+    <p class="section-lead i18n"><span data-i18n-default>The workflow in <code class="inline">.github/workflows/ci.yml</code> runs the test suite unmodified across a matrix of Perl releases (native runner + older interpreters), and a dogfooding job that runs the action against this repo's own <code class="inline">README.md</code> with <code class="inline">--check</code> — the same pattern the badges below in the changelog are generated with.</span><span data-locale="es" class="notranslate">El workflow en <code class="inline">.github/workflows/ci.yml</code> ejecuta la suite de pruebas sin modificar en una matriz de versiones de Perl (runner nativo + intérpretes más antiguos), y un job de dogfooding que ejecuta la action contra el propio <code class="inline">README.md</code> de este repo con <code class="inline">--check</code> — el mismo patrón con el que se generan las insignias del registro de cambios más abajo.</span><span data-locale="it" class="notranslate">Il workflow in <code class="inline">.github/workflows/ci.yml</code> esegue la suite di test senza modifiche su una matrice di versioni di Perl (runner nativo + interpreti più vecchi), e un job di dogfooding che esegue l'action sul <code class="inline">README.md</code> di questo stesso repo con <code class="inline">--check</code> — lo stesso schema con cui vengono generati i badge nel changelog qui sotto.</span></p>
     <pre><code>prove -r t</code></pre>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap doc">
-    <p class="eyebrow">FAQ</p>
-    <h2>Frequently asked</h2>
+    <p class="eyebrow i18n"><span data-i18n-default>FAQ</span><span data-locale="es" class="notranslate">FAQ</span><span data-locale="it" class="notranslate">FAQ</span></p>
+    <h2 class="i18n"><span data-i18n-default>Frequently asked</span><span data-locale="es" class="notranslate">Preguntas frecuentes</span><span data-locale="it" class="notranslate">Domande frequenti</span></h2>
     <div class="accordion">
       <div class="accordion-item">
         <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span>Does this need any CPAN modules?</span><span class="accordion-icon">+</span>
+          <span class="i18n"><span data-i18n-default>Does this need any CPAN modules?</span><span data-locale="es" class="notranslate">¿Necesita esto algún módulo de CPAN?</span><span data-locale="it" class="notranslate">Serve qualche modulo CPAN per questo?</span></span><span class="accordion-icon">+</span>
         </button>
-        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel">No. <code class="inline">Getopt::Long</code>, <code class="inline">File::Basename</code>, <code class="inline">File::Path</code>, and <code class="inline">FindBin</code> all ship with core Perl.</p></div></div>
+        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel i18n"><span data-i18n-default>No. <code class="inline">Getopt::Long</code>, <code class="inline">File::Basename</code>, <code class="inline">File::Path</code>, and <code class="inline">FindBin</code> all ship with core Perl.</span><span data-locale="es" class="notranslate">No. <code class="inline">Getopt::Long</code>, <code class="inline">File::Basename</code>, <code class="inline">File::Path</code> y <code class="inline">FindBin</code> vienen todos incluidos con el Perl núcleo.</span><span data-locale="it" class="notranslate">No. <code class="inline">Getopt::Long</code>, <code class="inline">File::Basename</code>, <code class="inline">File::Path</code> e <code class="inline">FindBin</code> fanno tutti parte del Perl core.</span></p></div></div>
       </div>
       <div class="accordion-item">
         <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span>Can I use a logo that isn't bundled?</span><span class="accordion-icon">+</span>
+          <span class="i18n"><span data-i18n-default>Can I use a logo that isn't bundled?</span><span data-locale="es" class="notranslate">¿Puedo usar un logo que no esté incluido?</span><span data-locale="it" class="notranslate">Posso usare un logo non incluso?</span></span><span class="accordion-icon">+</span>
         </button>
-        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel">Not yet — <code class="inline">logo=</code> only accepts names with a matching file under <code class="inline">assets/logos/</code>. Drop in your own <code class="inline">.svg</code> there to add one.</p></div></div>
+        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel i18n"><span data-i18n-default>Not yet — <code class="inline">logo=</code> only accepts names with a matching file under <code class="inline">assets/logos/</code>. Drop in your own <code class="inline">.svg</code> there to add one.</span><span data-locale="es" class="notranslate">Todavía no — <code class="inline">logo=</code> solo acepta nombres con un archivo correspondiente en <code class="inline">assets/logos/</code>. Coloca tu propio <code class="inline">.svg</code> ahí para agregar uno.</span><span data-locale="it" class="notranslate">Non ancora — <code class="inline">logo=</code> accetta solo nomi con un file corrispondente in <code class="inline">assets/logos/</code>. Inserisci lì il tuo <code class="inline">.svg</code> per aggiungerne uno.</span></p></div></div>
       </div>
       <div class="accordion-item">
         <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span>Is re-running the script safe?</span><span class="accordion-icon">+</span>
+          <span class="i18n"><span data-i18n-default>Is re-running the script safe?</span><span data-locale="es" class="notranslate">¿Es seguro volver a ejecutar el script?</span><span data-locale="it" class="notranslate">È sicuro rieseguire lo script?</span></span><span class="accordion-icon">+</span>
         </button>
-        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel">Yes — it's idempotent. Unchanged badges are never rewritten, and <code class="inline">--check</code> exits non-zero without touching disk at all.</p></div></div>
+        <div class="accordion-panel-wrap"><div class="accordion-panel-inner"><p class="accordion-panel i18n"><span data-i18n-default>Yes — it's idempotent. Unchanged badges are never rewritten, and <code class="inline">--check</code> exits non-zero without touching disk at all.</span><span data-locale="es" class="notranslate">Sí — es idempotente. Las insignias sin cambios nunca se reescriben, y <code class="inline">--check</code> termina con código distinto de cero sin tocar el disco en absoluto.</span><span data-locale="it" class="notranslate">Sì — è idempotente. I badge invariati non vengono mai riscritti, e <code class="inline">--check</code> termina con codice diverso da zero senza toccare affatto il disco.</span></p></div></div>
       </div>
     </div>
   </div>

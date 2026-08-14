@@ -9,10 +9,9 @@
 # sigilbadges
 
 Generated SVG badges (logo + text) inserted into `README.md` via marker
-comments, in the same spirit as `sigilmd` and `pdf-preview`: no template
-language, no CPAN dependencies, one Perl script. Badge generation needs no
-external binary at all — SVG is just text, so this is pure core Perl end to
-end.
+comments, in the same spirit as `sigilmd`: no template language, no CPAN
+dependencies, one Perl script. Badge generation needs no external binary at
+all — SVG is just text, so this is pure core Perl end to end.
 
 ## Showcase
 
@@ -60,7 +59,7 @@ perl sigilbadges.pl [--file README.md] [--badges-dir assets/badges] [--check]
 
 ## Project structure
 
-Kept current by [treegen2](https://github.com/lucianofedericopereira/treegen2) — `color="github"` matches this project's own graphite branding rather than treegen2's default green.
+Kept current by [treegen2](https://github.com/lucianofedericopereira/treegen2) — `color="github"` matches this project's own graphite branding rather than treegen2's own green site accent (its `color=` parameter itself defaults to `github`, same as here).
 
 <!-- filetree:start dir="." exclude=".git,t/fixtures" style="svg" color="github" svg-output="assets/sigilbadges-tree.svg" title="sigilbadges project structure" -->
 ![sigilbadges project structure](assets/sigilbadges-tree.svg)
