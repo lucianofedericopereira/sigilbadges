@@ -113,10 +113,18 @@ export function parseChangelog(md) {
     }
   }
 
+  const UNRELEASED_RE = /\s-\s*Unreleased\s*$/i;
   sections.forEach((s, i) => {
-    const [version, date] = s.heading.split(/\s+—\s+/);
-    s.version = version || s.heading;
-    s.date = date || '';
+    if (UNRELEASED_RE.test(s.heading)) {
+      s.version = s.heading.replace(UNRELEASED_RE, '').trim();
+      s.date = 'Unreleased';
+      s.unreleased = true;
+    } else {
+      const [version, date] = s.heading.split(/\s+—\s+/);
+      s.version = version || s.heading;
+      s.date = date || '';
+      s.unreleased = false;
+    }
     s.id = `section-${i + 1}`;
   });
 
@@ -212,9 +220,10 @@ function setupScrollSpy(sections, tocList, currentVersion, versionExists) {
     activeIndex = index;
     tocItems.forEach((li, i) => li.classList.toggle('active', i === index));
 
-    const version = sections[index] ? sections[index].version : '';
+    const section = sections[index];
+    const version = section ? section.version : '';
     currentVersion.replaceChildren();
-    if (GITHUB_REPO && version && versionExists.get(version)) {
+    if (GITHUB_REPO && version && !section?.unreleased && versionExists.get(version)) {
       currentVersion.href = releaseUrl(version);
       currentVersion.appendChild(document.createTextNode(version));
       currentVersion.appendChild(DOWNLOAD_ICON_NODE.cloneNode(true));
@@ -275,9 +284,11 @@ export async function initChangelog() {
     const parsed = parseChangelog(await res.text());
     const versionExists = new Map();
     await Promise.all(
-      [...new Set(parsed.sections.map((s) => s.version))].map(async (v) => {
-        versionExists.set(v, await releaseExists(v));
-      })
+      [...new Set(parsed.sections.filter((s) => !s.unreleased).map((s) => s.version))].map(
+        async (v) => {
+          versionExists.set(v, await releaseExists(v));
+        }
+      )
     );
     render(parsed, versionExists);
     // A #section-N in the URL (a bookmarked link, or a cross-page search
