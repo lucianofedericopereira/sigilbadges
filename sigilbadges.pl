@@ -163,6 +163,14 @@ for my $m (@markers) {
         # mistyped 'badge:' marker, so it still hard-errors on purpose.
         $m->{type} = 'foreign';
     }
+    elsif ($raw =~ /^pdf(?:-gallery)?:/) {
+        # pdf-preview's own marker syntax (<!--[[ pdf: ... ]]--> / <!--[[
+        # pdf-gallery: ... ]]-->) shares this exact <!--[[ ]]--> bracket
+        # convention with no namespace to tell tools apart. Left untouched
+        # -- unambiguous since sigilbadges has no marker starting with
+        # 'pdf', so skipping it can't mask a real sigilbadges typo.
+        $m->{type} = 'foreign';
+    }
     else {
         die "sigilbadges: unrecognized marker '<!--[[ $raw ]]-->' -- expected 'badge: <key=value ...>' or 'badge-row'\n";
     }
