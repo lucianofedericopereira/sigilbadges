@@ -24,6 +24,23 @@ function releaseUrl(version) {
   return `https://github.com/${GITHUB_REPO}/releases/tag/${encodeURIComponent(version)}`;
 }
 
+// Confirms a release tag actually exists before the changelog ever offers a
+// download link for it -- a changelog heading that doesn't exactly match a
+// real GitHub tag (or was never tagged/released yet) would otherwise render
+// as a dead link. Only a confirmed-absent tag (404) counts as "hide the
+// link"; a network failure or rate limit is inconclusive, so it fails open.
+async function releaseExists(version) {
+  if (!GITHUB_REPO || !version) return false;
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/releases/tags/${encodeURIComponent(version)}`
+    );
+    return res.status !== 404;
+  } catch {
+    return true;
+  }
+}
+
 // Inline markdown subset (`code`, **bold**, [text](url)), appended directly
 // as real nodes — text runs become text nodes, so nothing here is ever at
 // risk of being parsed as HTML, unlike building a string and assigning it
@@ -106,7 +123,7 @@ export function parseChangelog(md) {
   return { title, dek: dek.join(' '), sections };
 }
 
-function render({ title, dek, sections }) {
+function render({ title, dek, sections }, versionExists) {
   document.title = `${title} · sigilbadges`;
   document.getElementById('pageTitle').textContent = title;
   document.getElementById('dek').textContent = dek;
@@ -182,10 +199,10 @@ function render({ title, dek, sections }) {
     tocList.appendChild(tocLi);
   });
 
-  setupScrollSpy(sections, tocList, currentVersion);
+  setupScrollSpy(sections, tocList, currentVersion, versionExists);
 }
 
-function setupScrollSpy(sections, tocList, currentVersion) {
+function setupScrollSpy(sections, tocList, currentVersion, versionExists) {
   const tocItems = Array.from(tocList.children);
   const sectionEls = sections.map((s) => document.getElementById(s.id));
 
@@ -197,7 +214,7 @@ function setupScrollSpy(sections, tocList, currentVersion) {
 
     const version = sections[index] ? sections[index].version : '';
     currentVersion.replaceChildren();
-    if (GITHUB_REPO && version) {
+    if (GITHUB_REPO && version && versionExists.get(version)) {
       currentVersion.href = releaseUrl(version);
       currentVersion.appendChild(document.createTextNode(version));
       currentVersion.appendChild(DOWNLOAD_ICON_NODE.cloneNode(true));
@@ -255,7 +272,14 @@ export async function initChangelog() {
   try {
     const res = await fetch(SOURCE, { cache: 'no-store' });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    render(parseChangelog(await res.text()));
+    const parsed = parseChangelog(await res.text());
+    const versionExists = new Map();
+    await Promise.all(
+      [...new Set(parsed.sections.map((s) => s.version))].map(async (v) => {
+        versionExists.set(v, await releaseExists(v));
+      })
+    );
+    render(parsed, versionExists);
     // A #section-N in the URL (a bookmarked link, or a cross-page search
     // result from site.js) names a target that doesn't exist yet at the
     // point the browser normally does its own load-time hash scroll — the
